@@ -12,10 +12,12 @@ package accounts;
 public class Admin extends Account {
     
     //constructor
-    public Admin (int ID, String firstName, String surname, String address) {
+    public Admin (String ID, String password, String firstName, String surname, String address) {
         this.ID = ID;
+        this.password = password;
         this.firstName = firstName;
         this.surname = surname;
+        this.address = address;        
         this.accountType = "ADMIN";
     }
     
@@ -39,4 +41,8 @@ public class Admin extends Account {
         
     }
     
+    @Override
+    public String toString(){
+        return ID + password + firstName + surname + address + accountType;
+    }
 }

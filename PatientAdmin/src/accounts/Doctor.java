@@ -13,14 +13,14 @@ public class Doctor extends Account{
     
     private int rating;
     
-    //constructors
-    public Doctor (int ID, String firstName, String surname, String address) {
+    public Doctor (String ID, String password, String firstName, String surname, String address) {
         this.ID = ID;
+        this.password = password;
         this.firstName = firstName;
         this.surname = surname;
-        this.address = address;
+        this.address = address;        
         this.accountType = "DOCTOR";
-    }
+    }    
     
     public void viewAppointments(){
         
@@ -44,5 +44,16 @@ public class Doctor extends Account{
     
     public void requestMedicine(){
         
+    }   
+    
+    public void getDetails() {     
+        System.out.println("User ID: " + this.ID);
+        System.out.println("Account: " + this.accountType);
+        System.out.println("Name: " + this.firstName + " " + this.surname);
+    }
+    
+    @Override
+    public String toString(){
+        return ID + password + firstName + surname + address + accountType;
     }
 }

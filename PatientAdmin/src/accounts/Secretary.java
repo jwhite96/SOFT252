@@ -11,14 +11,14 @@ package accounts;
  */
 public class Secretary extends Account {
     
-    //constructor
-    public Secretary (int ID, String firstName, String surname, String address) {
+    public Secretary (String ID, String password, String firstName, String surname, String address) {
         this.ID = ID;
+        this.password = password;
         this.firstName = firstName;
         this.surname = surname;
-        this.address = address;
+        this.address = address;        
         this.accountType = "SECRETARY";
-    }  
+    }
     
     public void approveAccount() {
         
@@ -46,5 +46,10 @@ public class Secretary extends Account {
     
     public void approveRemovalRequest() {
         
+    }
+    
+    @Override
+    public String toString(){
+        return ID + password + firstName + surname + address + accountType;
     }
 }

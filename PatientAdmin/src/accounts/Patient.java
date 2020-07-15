@@ -15,13 +15,14 @@ public class Patient extends Account{
     private int age;
     
     //constructor
-    public Patient (int ID, String firstName, String surname, String address) {
+    public Patient (String ID, String password, String firstName, String surname, String address) {
         this.ID = ID;
+        this.password = password;
         this.firstName = firstName;
         this.surname = surname;
-        this.address = address;
+        this.address = address;        
         this.accountType = "PATIENT";
-    }  
+    }
     
     public void requestAccount(){
         
@@ -41,6 +42,11 @@ public class Patient extends Account{
     
     public void addAccount(){
         
-    }   
+    }
+    
+    @Override
+    public String toString(){
+        return ID + password + firstName + surname + address + accountType;
+    }
     
 }

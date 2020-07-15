@@ -21,5 +21,15 @@ public abstract class Request {
 
     public String getRequestType() {
         return requestType;
-    }    
+    }
+
+    public void setAccount(Account Account) {
+        this.Account = Account;
+    }
+
+    public void setRequestType(String requestType) {
+        this.requestType = requestType;
+    }
+
+    
 }
