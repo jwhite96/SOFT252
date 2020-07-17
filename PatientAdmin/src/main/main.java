@@ -5,11 +5,9 @@
  */
 package main;
 
+import appointments.*;
+import serialised.*;
 
-import accounts.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 /**
  *
@@ -22,19 +20,9 @@ public class main {
      */
     public static void main(String[] args) {
         
-        Doctor James = new Doctor("D001", "password", "James", "White", "Hemel Hempstead");
-        
-        List<Doctor> doctorList = new ArrayList<>();
-        doctorList.add(James);  
-
-        //Scanner input = new Scanner(System.in);
-       
-        //String ID = input.nextLine();
-        
-        System.out.println(James);
-        //String password = input.nextLine();             
-        
-
-         
+        AccountSingleton.createAccount("password", "James", "White", "Hemel Hempstead", "DOCTOR");
+      
+        System.out.println(AccountSingleton.getAccounts());             
+                
     }    
 }

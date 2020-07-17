@@ -5,11 +5,13 @@
  */
 package accounts;
 
+import java.io.Serializable;
+
 /**
  *
  * @author James
  */
-public class Doctor extends Account{
+public class Doctor extends Account implements Serializable {
     
     private int rating;
     
@@ -21,6 +23,9 @@ public class Doctor extends Account{
         this.address = address;        
         this.accountType = "DOCTOR";
     }    
+
+    public Doctor() {
+    }
     
     public void viewAppointments(){
         
@@ -45,13 +50,7 @@ public class Doctor extends Account{
     public void requestMedicine(){
         
     }   
-    
-    public void getDetails() {     
-        System.out.println("User ID: " + this.ID);
-        System.out.println("Account: " + this.accountType);
-        System.out.println("Name: " + this.firstName + " " + this.surname);
-    }
-    
+ 
     @Override
     public String toString(){
         return ID + password + firstName + surname + address + accountType;

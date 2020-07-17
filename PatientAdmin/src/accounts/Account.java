@@ -5,14 +5,13 @@
  */
 package accounts;
 
-import java.util.List;
-
+import java.io.Serializable;
 
 /**
  *
  * @author James
  */
-public abstract class Account {
+public abstract class Account implements Serializable {
     
     //account attributes
     protected String ID;
@@ -22,6 +21,9 @@ public abstract class Account {
     protected String address;
     protected String accountType;
 
+    public Account() {
+    }    
+    
     public String getID() {
         return ID;
     }

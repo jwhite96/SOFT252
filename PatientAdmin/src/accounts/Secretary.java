@@ -5,11 +5,13 @@
  */
 package accounts;
 
+import java.io.Serializable;
+
 /**
  *
  * @author James
  */
-public class Secretary extends Account {
+public class Secretary extends Account implements Serializable {
     
     public Secretary (String ID, String password, String firstName, String surname, String address) {
         this.ID = ID;
@@ -19,7 +21,10 @@ public class Secretary extends Account {
         this.address = address;        
         this.accountType = "SECRETARY";
     }
-    
+
+    public Secretary() {
+    }
+        
     public void approveAccount() {
         
     }

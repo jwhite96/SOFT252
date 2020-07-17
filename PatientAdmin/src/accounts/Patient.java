@@ -5,11 +5,13 @@
  */
 package accounts;
 
+import java.io.Serializable;
+
 /**
  *
  * @author James
  */
-public class Patient extends Account{
+public class Patient extends Account implements Serializable{
     
     private String gender;
     private int age;
@@ -22,6 +24,9 @@ public class Patient extends Account{
         this.surname = surname;
         this.address = address;        
         this.accountType = "PATIENT";
+    }
+
+    public Patient() {
     }
     
     public void requestAccount(){
