@@ -48,6 +48,6 @@ public class Admin extends Account implements Serializable {
     
     @Override
     public String toString(){
-        return ID + password + firstName + surname + address + accountType;
+        return firstName + " " + surname;
     }
 }

@@ -16,7 +16,7 @@
      <string>James</string>
     </void>
     <void property="password">
-     <string>password</string>
+     <string>test</string>
     </void>
     <void property="surname">
      <string>White</string>
@@ -48,7 +48,7 @@
   <void method="add">
    <object class="accounts.Secretary">
     <void property="ID">
-     <string>S2710</string>
+     <string>S1001</string>
     </void>
     <void property="accountType">
      <string>SECRETARY</string>
@@ -60,10 +60,32 @@
      <string>Karen</string>
     </void>
     <void property="password">
-     <string>yeet</string>
+     <string>test</string>
     </void>
     <void property="surname">
-     <string>STFU</string>
+     <string>Smith</string>
+    </void>
+   </object>
+  </void>
+<void method="add">
+   <object class="accounts.Patient">
+    <void property="ID">
+     <string>P1001</string>
+    </void>
+    <void property="accountType">
+     <string>PATIENT</string>
+    </void>
+    <void property="address">
+     <string>Plymouth</string>
+    </void>
+    <void property="firstName">
+     <string>Snoop</string>
+    </void>
+    <void property="password">
+     <string>test</string>
+    </void>
+    <void property="surname">
+     <string>Dog</string>
     </void>
    </object>
   </void>

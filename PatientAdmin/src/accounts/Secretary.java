@@ -53,8 +53,8 @@ public class Secretary extends Account implements Serializable {
         
     }
     
-    @Override
+   @Override
     public String toString(){
-        return ID + password + firstName + surname + address + accountType;
+        return firstName + " " + surname;
     }
 }

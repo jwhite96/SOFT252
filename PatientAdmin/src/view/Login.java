@@ -1,14 +1,10 @@
 package view;
 
 
-import accounts.Account;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import serialised.AccountSingleton;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -44,104 +40,76 @@ public class Login extends javax.swing.JFrame {
         lblID = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
-        txtTest = new javax.swing.JLabel();
+        btnClose = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btnLogin.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnLogin.setText("Login");
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
-            }
-        });
 
         jButton2.setText("Request New Account");
 
+        txtID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        lblID.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblID.setText("User ID");
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Password");
 
+        txtPassword.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        txtTest.setText("jLabel1");
+        btnClose.setText("Close");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(137, Short.MAX_VALUE)
+                .addGap(112, 112, 112)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(150, 150, 150))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(txtTest)
-                        .addGap(199, 199, 199))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lblID)
-                                .addComponent(txtID, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                                .addComponent(jLabel2)
-                                .addComponent(txtPassword)))
-                        .addGap(129, 129, 129))))
+                    .addComponent(txtID)
+                    .addComponent(txtPassword)
+                    .addComponent(btnLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(lblID))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(110, 110, 110))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(150, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(145, 145, 145))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtTest)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
                 .addComponent(lblID)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnLogin)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
-                .addGap(30, 30, 30))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnClose)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-                
-        String ID = getTxtID().getText();
-        String password = String.valueOf(getTxtPassword().getPassword());
-               
-        for (Account i : (ArrayList<Account>)AccountSingleton.getAccounts()) {
-            if ((i.getID().contentEquals(ID)) && (i.getPassword().contentEquals(password))) {
-                
-                switch (i.getAccountType()) {
-                        case "ADMIN":
-                            txtTest.setText("ADMIN");
-                            return;
-                        case "DOCTOR":
-                            txtTest.setText("DOCTOR");
-                            return;    
-                        case "PATIENT":
-                            txtTest.setText("PATIENT");
-                            return;
-                        case "SECRETARY":
-                            txtTest.setText("SECRETARY");
-                            return;
-                    }
-            } 
-            else 
-            {        
-                txtTest.setText("You Mad Cunt");
-            }
-        }
-    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,22 +194,21 @@ public class Login extends javax.swing.JFrame {
         this.txtPassword = txtPassword;
     }
 
-    public JLabel getTxtTest() {
-        return txtTest;
+    public JButton getBtnClose() {
+        return btnClose;
     }
 
-    public void setTxtTest(JLabel txtTest) {
-        this.txtTest = txtTest;
-    }
-    
+    public void setBtnClose(JButton btnClose) {
+        this.btnClose = btnClose;
+    }  
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClose;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblID;
     private javax.swing.JTextField txtID;
     private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JLabel txtTest;
     // End of variables declaration//GEN-END:variables
 }
