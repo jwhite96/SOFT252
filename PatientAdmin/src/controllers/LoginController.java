@@ -56,10 +56,6 @@ public class LoginController {
                             return;
                     }
             } 
-            else 
-            {        
-                JOptionPane.showMessageDialog(null, "Invalid Login Credentials");
-            }
         }
     }
     
