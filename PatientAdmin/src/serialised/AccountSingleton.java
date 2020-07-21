@@ -29,7 +29,7 @@ public class AccountSingleton implements Serializable {
     
     public AccountSingleton() {
     } 
-    
+        
     /**
      * Load XML
      * @return array list of saved accounts
@@ -133,15 +133,16 @@ public class AccountSingleton implements Serializable {
             Logger.getLogger(AccountSingleton.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+            
     /**
      * 
-     * @return full list of all users
+     * @return full list of users
      */
     public static ArrayList getAccounts() {
         accountsList = loadXML();
         return accountsList;
-    } 
+    }       
+    
 
-
+    
 }

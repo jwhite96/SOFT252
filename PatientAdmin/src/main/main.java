@@ -5,9 +5,12 @@
  */
 package main;
 
+import accounts.Account;
 import appointments.*;
+import controllers.LoginController;
+import java.util.ArrayList;
 import serialised.*;
-
+import view.Login;
 
 /**
  *
@@ -19,10 +22,24 @@ public class main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        AccountSingleton.createAccount("password", "James", "White", "Hemel Hempstead", "DOCTOR");
-      
-        System.out.println(AccountSingleton.getAccounts());             
-                
+       
+       Login login = new Login();
+       login.setVisible(true);
+       
+       System.out.println(AccountSingleton.getAccounts());             
+   
+       String username = "A1001";
+       String passsword = "admin";
+              
+       for (Account a : (ArrayList<Account>)AccountSingleton.getAccounts()) {
+            if ((a.getID().contentEquals(username)) && (a.getPassword().contentEquals(passsword))) {
+                System.out.println("YAY");
+            } 
+            else 
+            {        
+            System.out.println("FUCK");
+            }
+        }
+       
     }    
 }

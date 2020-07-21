@@ -4,7 +4,7 @@
   <void method="add">
    <object class="accounts.Doctor">
     <void property="ID">
-     <string>D6078</string>
+     <string>D1001</string>
     </void>
     <void property="accountType">
      <string>DOCTOR</string>
@@ -24,46 +24,46 @@
    </object>
   </void>
   <void method="add">
-   <object class="accounts.Doctor">
+   <object class="accounts.Admin">
     <void property="ID">
-     <string>D5219</string>
+     <string>A1001</string>
     </void>
     <void property="accountType">
-     <string>DOCTOR</string>
+     <string>ADMIN</string>
     </void>
     <void property="address">
-     <string>Hemel Hempstead</string>
+     <string>Plymouth</string>
     </void>
     <void property="firstName">
-     <string>James</string>
+     <string>Big</string>
     </void>
     <void property="password">
-     <string>password</string>
+     <string>admin</string>
     </void>
     <void property="surname">
-     <string>White</string>
+     <string>Boss</string>
     </void>
    </object>
   </void>
   <void method="add">
-   <object class="accounts.Doctor">
+   <object class="accounts.Secretary">
     <void property="ID">
-     <string>D4795</string>
+     <string>S2710</string>
     </void>
     <void property="accountType">
-     <string>DOCTOR</string>
+     <string>SECRETARY</string>
     </void>
     <void property="address">
-     <string>Hemel Hempstead</string>
+     <string>Plymouth</string>
     </void>
     <void property="firstName">
-     <string>James</string>
+     <string>Karen</string>
     </void>
     <void property="password">
-     <string>password</string>
+     <string>yeet</string>
     </void>
     <void property="surname">
-     <string>White</string>
+     <string>STFU</string>
     </void>
    </object>
   </void>
