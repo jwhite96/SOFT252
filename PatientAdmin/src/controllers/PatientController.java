@@ -22,7 +22,7 @@ public class PatientController {
         this.patient = (Patient) patient;
         initController();
         view.setVisible(true);
-        view.getLblDetails().setText("Welcome " + patient.toString());
+        view.getLblDetails().setText("Welcome " + patient.getFirstName() + patient.getSurname());
     }
         
     public void initController() {

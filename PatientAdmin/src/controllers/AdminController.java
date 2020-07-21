@@ -7,6 +7,8 @@ package controllers;
 import accounts.Account;
 import view.AdminHome;
 import accounts.Admin;
+import java.util.ArrayList;
+import serialised.AccountSingleton;
 
 /**
  *
@@ -22,11 +24,13 @@ public class AdminController {
         this.admin = (Admin) admin;
         initController();
         view.setVisible(true);
-        view.getLblDetails().setText("Welcome " + admin.toString());
+        view.getLblDetails().setText("Welcome " + admin.getFirstName() + admin.getSurname()) ;
     }
-        
+            
     public void initController() {
         view.getBtnLogout().addActionListener(e -> logout());
+        view.getLstDoctors().setListData(AccountSingleton.getAccountsByType("DOCTOR"));
+        view.getLstSecretary().setListData(AccountSingleton.getAccountsByType("SECRETARY"));
     }
     
     private void logout(){

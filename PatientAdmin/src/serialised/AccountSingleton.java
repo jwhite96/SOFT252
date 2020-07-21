@@ -6,6 +6,8 @@
 package serialised;
 
 import accounts.*;
+import controllers.AdminController;
+import controllers.DoctorController;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.BufferedInputStream;
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JList;
 
 /**
  *
@@ -143,6 +146,30 @@ public class AccountSingleton implements Serializable {
         return accountsList;
     }       
     
-
-    
+    public static String[] getAccountsByType(String accountType){
+        
+        getAccounts(); // load list of all accounts
+        
+        ArrayList<Object> accountsByType = new ArrayList<>();
+        
+        // loop through list of accounts and find all of the same account type
+        for (Account i : accountsList) {
+            if (i.getAccountType().contentEquals(accountType)) {
+                accountsByType.add(i);
+            }
+        }
+        
+        // create new string array for conversion
+        String[] list = new String[accountsByType.size()];
+              
+        // loop through arraylist and put into string array
+        for (int j = 0; j < accountsByType.size(); j++)
+        {
+            list[j] = accountsByType.get(j).toString();
+        }        
+        
+        return list;
+    }      
+        
 }
+

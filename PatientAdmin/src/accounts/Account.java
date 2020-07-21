@@ -71,4 +71,6 @@ public abstract class Account implements Serializable {
     public void setAccountType(String accountType) {
         this.accountType = accountType;
     }
+    
+    
 }
