@@ -67,7 +67,7 @@
     </void>
    </object>
   </void>
-<void method="add">
+  <void method="add">
    <object class="accounts.Patient">
     <void property="ID">
      <string>P1001</string>
@@ -86,6 +86,50 @@
     </void>
     <void property="surname">
      <string>Dog</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="accounts.Doctor">
+    <void property="ID">
+     <string>D2090</string>
+    </void>
+    <void property="accountType">
+     <string>DOCTOR</string>
+    </void>
+    <void property="address">
+     <string>London</string>
+    </void>
+    <void property="firstName">
+     <string>Phil</string>
+    </void>
+    <void property="password">
+     <string>password</string>
+    </void>
+    <void property="surname">
+     <string>Schofield</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="accounts.Secretary">
+    <void property="ID">
+     <string>S9381</string>
+    </void>
+    <void property="accountType">
+     <string>SECRETARY</string>
+    </void>
+    <void property="address">
+     <string>Springfield</string>
+    </void>
+    <void property="firstName">
+     <string>Lisa</string>
+    </void>
+    <void property="password">
+     <string>password</string>
+    </void>
+    <void property="surname">
+     <string>Simpson</string>
     </void>
    </object>
   </void>

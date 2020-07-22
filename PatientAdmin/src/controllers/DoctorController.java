@@ -23,7 +23,7 @@ public class DoctorController {
         this.doctor = (Doctor) doctor;
         initController();
         view.setVisible(true);
-        view.getLblDetails().setText("Welcome " + doctor.getFirstName() + doctor.getSurname());
+        view.getLblDetails().setText("Welcome " + doctor.getFirstName() + " " + doctor.getSurname());
     }
         
     public void initController() {

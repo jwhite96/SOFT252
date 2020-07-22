@@ -22,7 +22,7 @@ public class SecretaryController {
         this.secretary = (Secretary) secretary;
         initController();
         view.setVisible(true);
-        view.getLblDetails().setText("Welcome " + secretary.getFirstName() + secretary.getSurname());
+        view.getLblDetails().setText("Welcome " + secretary.getFirstName() + " " + secretary.getSurname());
     }
         
     public void initController() {

@@ -7,7 +7,6 @@ package controllers;
 import accounts.Account;
 import view.AdminHome;
 import accounts.Admin;
-import java.util.ArrayList;
 import serialised.AccountSingleton;
 
 /**
@@ -24,16 +23,28 @@ public class AdminController {
         this.admin = (Admin) admin;
         initController();
         view.setVisible(true);
-        view.getLblDetails().setText("Welcome " + admin.getFirstName() + admin.getSurname()) ;
+        view.getLblDetails().setText("Welcome " + admin.getFirstName() + " " + admin.getSurname());
     }
             
     public void initController() {
         view.getBtnLogout().addActionListener(e -> logout());
+        view.getBtnCreate().addActionListener(e -> create());
+        view.getBtnDeleteDoc().addActionListener(e -> deleteAccount());
+        view.getBtnDeleteSec().addActionListener(e -> deleteAccount());
         view.getLstDoctors().setListData(AccountSingleton.getAccountsByType("DOCTOR"));
         view.getLstSecretary().setListData(AccountSingleton.getAccountsByType("SECRETARY"));
     }
     
-    private void logout(){
+    private void deleteAccount() {
+        
+    }
+    
+    private void create() {
+        new AddAccountController(admin);
+        view.setVisible(false);
+    }
+    
+    private void logout() {
         new LoginController();
         view.setVisible(false);
     }

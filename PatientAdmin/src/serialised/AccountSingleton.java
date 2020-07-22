@@ -159,7 +159,7 @@ public class AccountSingleton implements Serializable {
             }
         }
         
-        // create new string array for conversion
+        // create new string array for converted list
         String[] list = new String[accountsByType.size()];
               
         // loop through arraylist and put into string array
