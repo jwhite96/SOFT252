@@ -5,23 +5,20 @@
  */
 package controllers;
 
-import accounts.Account;
-import accounts.Admin;
+import accounts.*;
 import javax.swing.JOptionPane;
-import view.AddAccount;
 
 /**
  *
  * @author James
  */
-public class AddAccountController {
+import view.CreateAccount;
+public class CreateAccountController {
     
-    private final AddAccount view;
-    private final Admin admin;
-    
-    public AddAccountController(Account admin) {
-        this.view = new AddAccount();
-        this.admin = (Admin) admin;
+    private final CreateAccount view;
+
+    public CreateAccountController() {
+        this.view = new CreateAccount();
         initController();
         view.setVisible(true);
     }
@@ -32,10 +29,11 @@ public class AddAccountController {
     }
     
     private void createAccount() {
-        String accountType = view.getCmbType().getSelectedItem().toString();
         String firstName = view.getTxtFirstName().getText();
         String surname = view.getTxtSurname().getText();
         String address = view.getTxtAddress().getText();
+        int age = (Integer) view.getSpnAge().getValue();
+        String gender = view.getCmbGender().toString();
         String password = String.valueOf(view.getTxtPassword().getPassword());
 
         if (firstName.isEmpty() || surname.isEmpty() || address.isEmpty() || password.isEmpty()){
@@ -43,17 +41,18 @@ public class AddAccountController {
         } 
         else 
         {
-            String ID = Admin.generateID(accountType);
-            Admin.createAccount(ID, password, firstName, surname, address, null, 0, accountType);
-            JOptionPane.showMessageDialog(null, "Account Created. Your User ID is: " + ID);
+            String ID = Admin.generateID("PATIENT");
+            Admin.createAccount(ID, password, firstName, surname, address, gender, age, "PATIENT");
+            JOptionPane.showMessageDialog(null, "Your Account Has Been Created. Your User ID is: " + ID);
         }
-        
+         
         view.setVisible(false);
-        new AdminController(admin);
+        new LoginController();
     }
     
-    private void back(){
+    private void back() {
+        new LoginController();
         view.setVisible(false);
-        new AdminController(admin);
     }
+    
 }

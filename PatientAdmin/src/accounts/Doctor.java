@@ -15,13 +15,14 @@ public class Doctor extends Account implements Serializable {
     
     private int rating;
     
-    public Doctor (String ID, String password, String firstName, String surname, String address) {
+    public Doctor (String ID, String password, String firstName, String surname, String address, int rating) {
         this.ID = ID;
         this.password = password;
         this.firstName = firstName;
         this.surname = surname;
         this.address = address;        
         this.accountType = "DOCTOR";
+        this.rating = rating;
     }    
 
     public Doctor() {
@@ -53,6 +54,6 @@ public class Doctor extends Account implements Serializable {
  
     @Override
     public String toString(){
-        return ID + " " + firstName + " " + surname;
+        return ID + ": Dr " + firstName + " " + surname + " - " + rating;
     }
 }

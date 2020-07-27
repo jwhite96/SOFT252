@@ -2,28 +2,6 @@
 <java version="1.8.0_191" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
   <void method="add">
-   <object class="accounts.Doctor">
-    <void property="ID">
-     <string>D1001</string>
-    </void>
-    <void property="accountType">
-     <string>DOCTOR</string>
-    </void>
-    <void property="address">
-     <string>Hemel Hempstead</string>
-    </void>
-    <void property="firstName">
-     <string>James</string>
-    </void>
-    <void property="password">
-     <string>test</string>
-    </void>
-    <void property="surname">
-     <string>White</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
    <object class="accounts.Admin">
     <void property="ID">
      <string>A1001</string>
@@ -46,24 +24,24 @@
    </object>
   </void>
   <void method="add">
-   <object class="accounts.Secretary">
+   <object class="accounts.Doctor">
     <void property="ID">
-     <string>S1001</string>
+     <string>D1001</string>
     </void>
     <void property="accountType">
-     <string>SECRETARY</string>
+     <string>DOCTOR</string>
     </void>
     <void property="address">
-     <string>Plymouth</string>
+     <string>Hemel Hempstead</string>
     </void>
     <void property="firstName">
-     <string>Karen</string>
+     <string>James</string>
     </void>
     <void property="password">
-     <string>test</string>
+     <string>pass</string>
     </void>
     <void property="surname">
-     <string>Smith</string>
+     <string>White</string>
     </void>
    </object>
   </void>
@@ -76,60 +54,82 @@
      <string>PATIENT</string>
     </void>
     <void property="address">
-     <string>Plymouth</string>
+     <string>Hemel</string>
     </void>
     <void property="firstName">
-     <string>Snoop</string>
+     <string>James</string>
     </void>
     <void property="password">
-     <string>test</string>
+     <string>pass</string>
     </void>
     <void property="surname">
-     <string>Dog</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="accounts.Doctor">
-    <void property="ID">
-     <string>D2090</string>
-    </void>
-    <void property="accountType">
-     <string>DOCTOR</string>
-    </void>
-    <void property="address">
-     <string>London</string>
-    </void>
-    <void property="firstName">
-     <string>Phil</string>
-    </void>
-    <void property="password">
-     <string>password</string>
-    </void>
-    <void property="surname">
-     <string>Schofield</string>
+     <string>White</string>
     </void>
    </object>
   </void>
   <void method="add">
    <object class="accounts.Secretary">
     <void property="ID">
-     <string>S9381</string>
+     <string>S9899</string>
     </void>
     <void property="accountType">
      <string>SECRETARY</string>
     </void>
     <void property="address">
-     <string>Springfield</string>
+     <string>London</string>
     </void>
     <void property="firstName">
-     <string>Lisa</string>
+     <string>Karen</string>
     </void>
     <void property="password">
-     <string>password</string>
+     <string>pass</string>
     </void>
     <void property="surname">
-     <string>Simpson</string>
+     <string>Fisher</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="accounts.Doctor">
+    <void property="ID">
+     <string>D7326</string>
+    </void>
+    <void property="accountType">
+     <string>DOCTOR</string>
+    </void>
+    <void property="address">
+     <string>dsa</string>
+    </void>
+    <void property="firstName">
+     <string>dsa</string>
+    </void>
+    <void property="password">
+     <string>dsa</string>
+    </void>
+    <void property="surname">
+     <string>dsa</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="accounts.Patient">
+    <void property="ID">
+     <string>P5660</string>
+    </void>
+    <void property="accountType">
+     <string>PATIENT</string>
+    </void>
+    <void property="address">
+     <string>dsa</string>
+    </void>
+    <void property="firstName">
+     <string>dsa</string>
+    </void>
+    <void property="password">
+     <string>ds</string>
+    </void>
+    <void property="surname">
+     <string>sda</string>
     </void>
    </object>
   </void>

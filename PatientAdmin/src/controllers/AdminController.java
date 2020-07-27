@@ -7,7 +7,6 @@ package controllers;
 import accounts.Account;
 import view.AdminHome;
 import accounts.Admin;
-import serialised.AccountSingleton;
 
 /**
  *
@@ -29,14 +28,20 @@ public class AdminController {
     public void initController() {
         view.getBtnLogout().addActionListener(e -> logout());
         view.getBtnCreate().addActionListener(e -> create());
-        view.getBtnDeleteDoc().addActionListener(e -> deleteAccount());
-        view.getBtnDeleteSec().addActionListener(e -> deleteAccount());
-        view.getLstDoctors().setListData(AccountSingleton.getAccountsByType("DOCTOR"));
-        view.getLstSecretary().setListData(AccountSingleton.getAccountsByType("SECRETARY"));
+        view.getBtnDeleteDoc().addActionListener(e -> deleteDoctor());
+        view.getBtnDeleteSec().addActionListener(e -> deleteSecreatary());
+        view.getLstDoctors().setListData(Admin.viewAccounts("DOCTOR"));
+        view.getLstSecretary().setListData(Admin.viewAccounts("SECRETARY"));
     }
     
-    private void deleteAccount() {
-        
+    private void deleteDoctor() {        
+        Admin.removeAccount(view.getLstDoctors().getSelectedValue());
+        initController();
+    }
+    
+    private void deleteSecreatary() {
+        Admin.removeAccount(view.getLstSecretary().getSelectedValue());
+        initController();
     }
     
     private void create() {

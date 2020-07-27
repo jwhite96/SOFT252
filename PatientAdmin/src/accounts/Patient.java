@@ -6,6 +6,7 @@
 package accounts;
 
 import java.io.Serializable;
+import serialization.AppointmentSingleton;
 
 /**
  *
@@ -15,14 +16,18 @@ public class Patient extends Account implements Serializable{
     
     private String gender;
     private int age;
+    private int status;
     
     //constructor
-    public Patient (String ID, String password, String firstName, String surname, String address) {
+    public Patient (String ID, String password, String firstName, String surname, String address, String gender, int age, int status) {
         this.ID = ID;
         this.password = password;
         this.firstName = firstName;
         this.surname = surname;
-        this.address = address;        
+        this.address = address;      
+        this.gender = gender;
+        this.age = age;
+        this.status = status;
         this.accountType = "PATIENT";
     }
 
@@ -41,12 +46,8 @@ public class Patient extends Account implements Serializable{
         
     }
     
-    public void requestAppointment(){
-        
-    }
-    
-    public void addAccount(){
-        
+    public static void bookAppointment(Doctor doctor, Patient patient, String date, String notes){
+        AppointmentSingleton.createAppointment(doctor, patient, date, notes);
     }
     
     @Override

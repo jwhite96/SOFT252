@@ -24,7 +24,7 @@ public class Appointment implements Serializable {
         this.date = date;
         this.notes = notes;
     }
-   
+    
     public Appointment() {
     }  
 

@@ -4,19 +4,25 @@
  * and open the template in the editor.
  */
 package requests;
+
 import accounts.Doctor;
+import accounts.Patient;
+import java.io.Serializable;
 
 /**
  *
  * @author James
  */
-public class AppointmentRequest extends Request {
+public class AppointmentRequest extends Request implements Serializable {
     
     private Doctor doctor;
-    private String date; //sort out dates later
+    private Patient patient;
+    private String date;
     
     public AppointmentRequest() {
         this.requestType = "APPOINTMENT";
-    }  
+    }
+    
+    
     
 }

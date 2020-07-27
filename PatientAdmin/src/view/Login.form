@@ -26,7 +26,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton2" max="32767" attributes="0"/>
+                  <Component id="btnCreate" max="32767" attributes="0"/>
                   <Component id="txtID" alignment="0" max="32767" attributes="0"/>
                   <Component id="txtPassword" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnLogin" alignment="1" pref="228" max="32767" attributes="0"/>
@@ -61,7 +61,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnLogin" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+              <Component id="btnCreate" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnClose" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
@@ -78,7 +78,7 @@
         <Property name="text" type="java.lang.String" value="Login"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="btnCreate">
       <Properties>
         <Property name="text" type="java.lang.String" value="Request New Account"/>
       </Properties>

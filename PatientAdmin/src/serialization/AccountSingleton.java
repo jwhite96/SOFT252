@@ -3,24 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package serialised;
+package serialization;
 
 import accounts.*;
-import controllers.AdminController;
-import controllers.DoctorController;
-import java.beans.XMLDecoder;
-import java.beans.XMLEncoder;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JList;
 
 /**
  *
@@ -32,28 +20,7 @@ public class AccountSingleton implements Serializable {
     
     public AccountSingleton() {
     } 
-        
-    /**
-     * Load XML
-     * @return array list of saved accounts
-     */
-    public static ArrayList loadXML(){
-
-        try {
-            XMLDecoder d = new XMLDecoder(new BufferedInputStream(new FileInputStream("data/Accounts.xml")));            
-            ArrayList<Account> savedAccounts = (ArrayList<Account>) d.readObject();
-            d.close();  
-            
-            return savedAccounts;
-            
-        } catch (FileNotFoundException ex) {
-            
-            Logger.getLogger(AccountSingleton.class.getName()).log(Level.SEVERE, null, ex);
-            
-            return null;
-        }
-    }
-    
+               
     /**
      * 
      * @param accountType - account type of requested account
@@ -90,86 +57,96 @@ public class AccountSingleton implements Serializable {
     
     /**
      * 
+     * @param ID
      * @param password- users password
      * @param firstName - users first name
      * @param surname - users surname
      * @param address = users address
      * @param accountType - account type of the user [Admin, Doctor, Patient or Secretary]
+     * @param age - age used for patient accounts - all other accounts return null
+     * @param gender - gender used for patient accounts - all other accounts return null
      */
-    public static void createAccount(String password, String firstName, String surname, String address, String accountType) {
+    public static void createAccount(String ID, String password, String firstName, String surname, String address, String accountType, String gender, int age) {
                 
-        accountsList = loadXML();
-        
-        String ID = generateID(accountType);
+        accountsList = getAccounts();
         
         if (null != accountType)switch (accountType) {
             case "DOCTOR":
-                accountsList.add(new Doctor(ID, password, firstName, surname, address));
+                accountsList.add(new Doctor(ID, password, firstName, surname, address, 0));
                 break;
             case "ADMIN":
                 accountsList.add(new Admin(ID, password, firstName, surname, address));
                 break;
             case "PATIENT":
-                accountsList.add(new Patient(ID, password, firstName, surname, address));
+                accountsList.add(new Patient(ID, password, firstName, surname, address, gender, age, 0));
                 break;
             case "SECRETARY":
                 accountsList.add(new Secretary(ID, password, firstName, surname, address));
                 break;
             default:
                 break;
-        }
-        
-        updateXML();
-
+        }  
+        updateAccounts();
     }
     
-    /**
-     * update XML with newly created account
-     */
-    private static void updateXML() {
+    public static void deleteAccount(String info) {
         
-        try {
-            XMLEncoder e = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("data/Accounts.xml")));
-            e.writeObject(accountsList);
-            e.close();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(AccountSingleton.class.getName()).log(Level.SEVERE, null, ex);
+        Account a = null;
+        
+        // search arraylist for ID and return account object
+        for (Account i : accountsList) {
+           if (info.contains(i.getID())){
+               a = i;
+           }
         }
+        
+        //remove account object
+        if (accountsList.contains(a)) {
+            accountsList.remove(a);
+        }
+           
+        //update xml
+        updateAccounts();
     }
-            
+    
+    public static void updateAccounts() {
+        AccountSerialiser.xmlEncoder(accountsList, "data/Accounts.xml");
+    }
+    
     /**
      * 
      * @return full list of users
      */
     public static ArrayList getAccounts() {
-        accountsList = loadXML();
+        accountsList = AccountSerialiser.xmlDecoder(accountsList, "data/Accounts.xml");
         return accountsList;
     }       
-    
-    public static String[] getAccountsByType(String accountType){
-        
-        getAccounts(); // load list of all accounts
-        
-        ArrayList<Object> accountsByType = new ArrayList<>();
-        
+
+    /**
+     * 
+     * @param accountType
+     * @return list of accounts sorted by type
+     */
+    public static String [] getAccountsByType(String accountType){
+             
+        ArrayList<Account> accountsByType = new ArrayList<>();
+
         // loop through list of accounts and find all of the same account type
         for (Account i : accountsList) {
             if (i.getAccountType().contentEquals(accountType)) {
                 accountsByType.add(i);
             }
         }
-        
-        // create new string array for converted list
+
+        //create new string array for converted list
         String[] list = new String[accountsByType.size()];
               
-        // loop through arraylist and put into string array
-        for (int j = 0; j < accountsByType.size(); j++)
-        {
+        //loop through arraylist and put into string array
+        for (int j = 0; j < accountsByType.size(); j++) {
             list[j] = accountsByType.get(j).toString();
         }        
         
         return list;
-    }      
-        
+    }    
 }
 

@@ -7,7 +7,7 @@ package controllers;
 
 import accounts.Account;
 import java.util.ArrayList;
-import serialised.AccountSingleton;
+import serialization.AccountSingleton;
 import view.Login;
 
 /**
@@ -27,6 +27,7 @@ public class LoginController {
     public void initController() {
         view.getBtnLogin().addActionListener(e -> login());
         view.getBtnClose().addActionListener(e -> close());
+        view.getBtnCreate().addActionListener(e -> create());
     }
 
     private void login(){
@@ -56,6 +57,11 @@ public class LoginController {
                     }
             } 
         }
+    }
+    
+    private void create() {
+        new CreateAccountController();
+        view.setVisible(false);
     }
     
     private void close() {

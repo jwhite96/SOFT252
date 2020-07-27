@@ -35,7 +35,7 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         btnLogin = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnCreate = new javax.swing.JButton();
         txtID = new javax.swing.JTextField();
         lblID = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -47,7 +47,7 @@ public class Login extends javax.swing.JFrame {
         btnLogin.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnLogin.setText("Login");
 
-        jButton2.setText("Request New Account");
+        btnCreate.setText("Request New Account");
 
         txtID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -70,7 +70,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(112, 112, 112)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtID)
                     .addComponent(txtPassword)
                     .addComponent(btnLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
@@ -99,7 +99,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addComponent(btnCreate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnClose)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -117,28 +117,12 @@ public class Login extends javax.swing.JFrame {
         this.btnLogin = btnLogin;
     }
 
-    public JButton getjButton2() {
-        return jButton2;
+    public JButton getBtnCreate() {
+        return btnCreate;
     }
 
-    public void setjButton2(JButton jButton2) {
-        this.jButton2 = jButton2;
-    }
-
-    public JLabel getjLabel2() {
-        return jLabel2;
-    }
-
-    public void setjLabel2(JLabel jLabel2) {
-        this.jLabel2 = jLabel2;
-    }
-
-    public JLabel getLblID() {
-        return lblID;
-    }
-
-    public void setLblID(JLabel lblID) {
-        this.lblID = lblID;
+    public void setBtnCreate(JButton btnCreate) {
+        this.btnCreate = btnCreate;
     }
 
     public JTextField getTxtID() {
@@ -167,8 +151,8 @@ public class Login extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClose;
+    private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnLogin;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblID;
     private javax.swing.JTextField txtID;

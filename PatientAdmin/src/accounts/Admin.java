@@ -6,7 +6,7 @@
 package accounts;
    
 import java.io.Serializable;
-import serialised.AccountSingleton;
+import serialization.AccountSingleton;
 
 /**
  *
@@ -27,13 +27,20 @@ public class Admin extends Account implements Serializable {
     public Admin() {
     }
     
-    public static void createAccount(String password, String firstName, String surname, String address, String accountType){
-        
-        AccountSingleton.createAccount(password, firstName, surname, address, accountType);   
+    public static String generateID(String accountType) {
+        return AccountSingleton.generateID(accountType);
+    }
+    
+    public static void createAccount(String ID, String password, String firstName, String surname, String address, String gender, int age, String accountType){
+        AccountSingleton.createAccount(ID, password, firstName, surname, address, gender, age, accountType);
     }
         
-    public static void removeAccount(){
-        
+    public static void removeAccount(String info){
+        AccountSingleton.deleteAccount(info);
+    }
+    
+    public static String [] viewAccounts(String accountType) {
+        return AccountSingleton.getAccountsByType(accountType);
     }
     
     public static void viewRatings(){
