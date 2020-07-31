@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_191" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="appointments.Appointment">
+    <void property="date">
+     <string>9:00 / 1 / Jan</string>
+    </void>
+    <void property="doctor">
+     <object class="accounts.Doctor">
+      <void property="ID">
+       <string>D1001</string>
+      </void>
+      <void property="accountType">
+       <string>DOCTOR</string>
+      </void>
+      <void property="address">
+       <string>Hemel Hempstead</string>
+      </void>
+      <void property="firstName">
+       <string>James</string>
+      </void>
+      <void property="password">
+       <string>pass</string>
+      </void>
+      <void property="surname">
+       <string>White</string>
+      </void>
+     </object>
+    </void>
+    <void property="notes">
+     <string></string>
+    </void>
+    <void property="patient">
+     <object class="accounts.Patient">
+      <void property="ID">
+       <string>P1001</string>
+      </void>
+      <void property="accountType">
+       <string>PATIENT</string>
+      </void>
+      <void property="address">
+       <string>Hemel</string>
+      </void>
+      <void property="firstName">
+       <string>James</string>
+      </void>
+      <void property="password">
+       <string>pass</string>
+      </void>
+      <void property="surname">
+       <string>White</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

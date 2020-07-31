@@ -66,7 +66,7 @@ public class AccountSingleton implements Serializable {
      * @param age - age used for patient accounts - all other accounts return null
      * @param gender - gender used for patient accounts - all other accounts return null
      */
-    public static void createAccount(String ID, String password, String firstName, String surname, String address, String accountType, String gender, int age) {
+    public static void createAccount(String ID, String password, String firstName, String surname, String address, String gender, int age, String accountType) {
                 
         accountsList = getAccounts();
         
@@ -78,7 +78,7 @@ public class AccountSingleton implements Serializable {
                 accountsList.add(new Admin(ID, password, firstName, surname, address));
                 break;
             case "PATIENT":
-                accountsList.add(new Patient(ID, password, firstName, surname, address, gender, age, 0));
+                accountsList.add(new Patient(ID, password, firstName, surname, address, gender, age));
                 break;
             case "SECRETARY":
                 accountsList.add(new Secretary(ID, password, firstName, surname, address));
@@ -89,20 +89,23 @@ public class AccountSingleton implements Serializable {
         updateAccounts();
     }
     
-    public static void deleteAccount(String info) {
+    public static Account convertToObject(String account) {
         
-        Account a = null;
-        
-        // search arraylist for ID and return account object
         for (Account i : accountsList) {
-           if (info.contains(i.getID())){
-               a = i;
+           if (account.contains(i.getID())){
+               return i;
            }
         }
+        return null;
+    }
+    
+    public static void deleteAccount(String info) {
+        
+        Account i = convertToObject(info);
         
         //remove account object
-        if (accountsList.contains(a)) {
-            accountsList.remove(a);
+        if (accountsList.contains(i)) {
+            accountsList.remove(i);
         }
            
         //update xml

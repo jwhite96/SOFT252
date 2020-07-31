@@ -15,14 +15,16 @@ public class Appointment implements Serializable {
     
     private Doctor doctor;
     private Patient patient;
-    private String date; //Sort out date later
+    private String date;
     private String notes;
+    private int status; //0 = upcoming | 1 = previous
 
-    public Appointment(Doctor doctor, Patient patient, String date, String notes) {
+    public Appointment(Doctor doctor, Patient patient, String date, String notes, int status) {
         this.doctor = doctor;
         this.patient = patient;
         this.date = date;
         this.notes = notes;
+        this.status = status;
     }
     
     public Appointment() {

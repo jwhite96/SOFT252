@@ -16,10 +16,9 @@ public class Patient extends Account implements Serializable{
     
     private String gender;
     private int age;
-    private int status;
     
     //constructor
-    public Patient (String ID, String password, String firstName, String surname, String address, String gender, int age, int status) {
+    public Patient (String ID, String password, String firstName, String surname, String address, String gender, int age) {
         this.ID = ID;
         this.password = password;
         this.firstName = firstName;
@@ -27,7 +26,6 @@ public class Patient extends Account implements Serializable{
         this.address = address;      
         this.gender = gender;
         this.age = age;
-        this.status = status;
         this.accountType = "PATIENT";
     }
 
@@ -46,8 +44,8 @@ public class Patient extends Account implements Serializable{
         
     }
     
-    public static void bookAppointment(Doctor doctor, Patient patient, String date, String notes){
-        AppointmentSingleton.createAppointment(doctor, patient, date, notes);
+    public static void bookAppointment(Doctor doctor, Patient patient, String dateTime, String notes){
+        AppointmentSingleton.createAppointment(doctor, patient, dateTime, notes);
     }
     
     @Override

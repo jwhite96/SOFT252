@@ -7,7 +7,6 @@ package serialization;
 
 import accounts.*;
 import appointments.*;
-import serialization.AccountSingleton;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -22,17 +21,17 @@ public class AppointmentSingleton implements Serializable {
     public AppointmentSingleton() {
     }
         
-    public static void createAppointment(Doctor doctor, Patient patient, String date, String notes) {
+    public static void createAppointment(Doctor doctor, Patient patient, String dateTime, String notes) {
                 
         appointments = getAppointments();
 
-        appointments.add(new Appointment(doctor, patient, date, notes));
+        appointments.add(new Appointment(doctor, patient, dateTime, notes, 0));
          
         updateAppointments();
     }
     
     public static void updateAppointments() {
-        AppointmentSerialiser.xmlDecoder(appointments, "data/Appointments.xml");
+        AppointmentSerialiser.xmlEncoder(appointments, "data/Appointments.xml");
     }
     
     /**
