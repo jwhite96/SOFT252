@@ -25,7 +25,7 @@ public class AppointmentSingleton implements Serializable {
                 
         appointments = getAppointments();
 
-        appointments.add(new Appointment(doctor, patient, dateTime, notes, 0));
+        appointments.add(new Appointment(doctor, patient, dateTime, notes));
          
         updateAppointments();
     }

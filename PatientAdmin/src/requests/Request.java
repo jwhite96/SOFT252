@@ -5,16 +5,29 @@
  */
 package requests;
 import accounts.Account;
+import java.io.Serializable;
 
 /**
  *
  * @author James
  */
-public abstract class Request {
+public abstract class Request implements Serializable {
     
+    protected String ID;
     protected Account Account;
     protected String requestType;
 
+    public Request() {
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+    
     public Account getAccount() {
         return Account;
     }

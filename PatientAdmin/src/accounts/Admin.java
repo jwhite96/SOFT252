@@ -35,11 +35,11 @@ public class Admin extends Account implements Serializable {
         AccountSingleton.createAccount(ID, password, firstName, surname, address, gender, age, accountType);
     }
         
-    public static void removeAccount(String info){
-        AccountSingleton.deleteAccount(info);
+    public static void removeAccount(String account){
+        AccountSingleton.deleteAccount(account);
     }
     
-    public static String [] viewAccounts(String accountType) {
+    public static String [] getAccounts(String accountType) {
         return AccountSingleton.getAccountsByType(accountType);
     }
     

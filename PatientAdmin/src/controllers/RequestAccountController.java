@@ -12,13 +12,13 @@ import javax.swing.JOptionPane;
  *
  * @author James
  */
-import view.CreateAccount;
-public class CreateAccountController {
+import view.RequestAccount;
+public class RequestAccountController {
     
-    private final CreateAccount view;
+    private final RequestAccount view;
 
-    public CreateAccountController() {
-        this.view = new CreateAccount();
+    public RequestAccountController() {
+        this.view = new RequestAccount();
         initController();
         view.setVisible(true);
     }
@@ -42,8 +42,9 @@ public class CreateAccountController {
         else 
         {
             String ID = Admin.generateID("PATIENT");
-            Admin.createAccount(ID, password, firstName, surname, address, gender, age, "PATIENT");
-            JOptionPane.showMessageDialog(null, "Your Account Has Been Created. Your User ID is: " + ID);
+            Patient newPatient = new Patient(ID, password, firstName, surname, address, gender, age);
+            Patient.requestAccount(newPatient);
+            JOptionPane.showMessageDialog(null, "Your Account Request Has Been Recieved");
         }
          
         view.setVisible(false);

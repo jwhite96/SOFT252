@@ -60,7 +60,7 @@ public class LoginController {
     }
     
     private void create() {
-        new CreateAccountController();
+        new RequestAccountController();
         view.setVisible(false);
     }
     

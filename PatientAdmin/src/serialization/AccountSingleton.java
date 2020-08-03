@@ -99,9 +99,9 @@ public class AccountSingleton implements Serializable {
         return null;
     }
     
-    public static void deleteAccount(String info) {
+    public static void deleteAccount(String account) {
         
-        Account i = convertToObject(info);
+        Account i = convertToObject(account);
         
         //remove account object
         if (accountsList.contains(i)) {
@@ -128,10 +128,12 @@ public class AccountSingleton implements Serializable {
     /**
      * 
      * @param accountType
-     * @return list of accounts sorted by type
+     * @return string array of accounts sorted by type
      */
     public static String [] getAccountsByType(String accountType){
              
+        getAccounts();
+        
         ArrayList<Account> accountsByType = new ArrayList<>();
 
         // loop through list of accounts and find all of the same account type

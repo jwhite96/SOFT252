@@ -5,14 +5,27 @@
  */
 package requests;
 
+import accounts.*;
+import java.io.Serializable;
+
 /**
  *
  * @author James
  */
-public class CreateRequest extends Request {
+public class CreateRequest extends Request implements Serializable{
     
-    public CreateRequest() {
+    public CreateRequest(String ID, Account account) {
+        this.ID = ID;
+        this.Account = account;
         this.requestType = "CREATE";
+    }
+
+    public CreateRequest() {
+    }
+
+    @Override
+    public String toString(){
+        return Account.getID() + " " + Account.getFirstName() + " " + Account.getSurname() + ": " + requestType;
     }
     
 }

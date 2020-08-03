@@ -33,7 +33,8 @@ public class PatientController {
     public void initController() {
         view.getBtnLogout().addActionListener(e -> logout());
         view.getBtnSubmit().addActionListener(e -> requestAppointment());
-        view.getCmbDoctor().setModel(new DefaultComboBoxModel(Admin.viewAccounts("DOCTOR")));
+        view.getBtnDelete().addActionListener(e -> deleteRequest());
+        view.getCmbDoctor().setModel(new DefaultComboBoxModel(Admin.getAccounts("DOCTOR")));
     }
     
     private void logout(){
@@ -49,8 +50,13 @@ public class PatientController {
         
         String dateTime = time + " / " + day + " / " + month;
 
-        Patient.bookAppointment(doctor, (Patient) patient, dateTime, "");
+        Patient.requestAppointment(patient, doctor, dateTime);
         
-        JOptionPane.showMessageDialog(null, "Your Appointment has been passed to your requested doctor");
+        JOptionPane.showMessageDialog(null, "Your appointment request has been received. Thank You");
     }
+    
+    private void deleteRequest() {
+        Patient.deleteAccount(patient);
+    }
+    
 }

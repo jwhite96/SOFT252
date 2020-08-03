@@ -30,8 +30,8 @@ public class AdminController {
         view.getBtnCreate().addActionListener(e -> create());
         view.getBtnDeleteDoc().addActionListener(e -> deleteDoctor());
         view.getBtnDeleteSec().addActionListener(e -> deleteSecreatary());
-        view.getLstDoctors().setListData(Admin.viewAccounts("DOCTOR"));
-        view.getLstSecretary().setListData(Admin.viewAccounts("SECRETARY"));
+        view.getLstDoctors().setListData(Admin.getAccounts("DOCTOR"));
+        view.getLstSecretary().setListData(Admin.getAccounts("SECRETARY"));
     }
     
     private void deleteDoctor() {        

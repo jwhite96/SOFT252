@@ -15,12 +15,12 @@ import javax.swing.JTextField;
  *
  * @author James
  */
-public class CreateAccount extends javax.swing.JFrame {
+public class RequestAccount extends javax.swing.JFrame {
 
     /**
      * Creates new form AdminAddAccount
      */
-    public CreateAccount() {
+    public RequestAccount() {
         initComponents();
     }
 
@@ -59,7 +59,7 @@ public class CreateAccount extends javax.swing.JFrame {
 
         txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        btnCreate.setText("Create Account");
+        btnCreate.setText("Request Account");
 
         btnBack.setText("Back");
 

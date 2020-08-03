@@ -90,28 +90,6 @@
    </object>
   </void>
   <void method="add">
-   <object class="accounts.Doctor">
-    <void property="ID">
-     <string>D7326</string>
-    </void>
-    <void property="accountType">
-     <string>DOCTOR</string>
-    </void>
-    <void property="address">
-     <string>dsa</string>
-    </void>
-    <void property="firstName">
-     <string>dsa</string>
-    </void>
-    <void property="password">
-     <string>dsa</string>
-    </void>
-    <void property="surname">
-     <string>dsa</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
    <object class="accounts.Patient">
     <void property="ID">
      <string>P5660</string>

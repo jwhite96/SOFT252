@@ -5,8 +5,7 @@
  */
 package requests;
 
-import accounts.Doctor;
-import accounts.Patient;
+import accounts.*;
 import java.io.Serializable;
 
 /**
@@ -16,13 +15,21 @@ import java.io.Serializable;
 public class AppointmentRequest extends Request implements Serializable {
     
     private Doctor doctor;
-    private Patient patient;
     private String date;
     
-    public AppointmentRequest() {
+    public AppointmentRequest(String ID, Account account, Doctor doctor, String date) {
+        this.ID = ID;
+        this.Account = account;
+        this.doctor = doctor;
+        this.date = date;
         this.requestType = "APPOINTMENT";
     }
+        
+    public AppointmentRequest() {
+    }
     
-    
-    
+    @Override
+    public String toString(){
+        return Account.getID() + " " + Account.getFirstName() + " " + Account.getSurname() + ": " + requestType;
+    }
 }

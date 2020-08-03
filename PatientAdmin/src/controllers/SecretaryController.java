@@ -5,8 +5,10 @@
  */
 package controllers;
 import accounts.Account;
+import accounts.Admin;
 import view.SecretaryHome;
 import accounts.Secretary;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -27,6 +29,18 @@ public class SecretaryController {
         
     public void initController() {
         view.getBtnLogout().addActionListener(e -> logout());
+        view.getBtnAction().addActionListener(e -> actionRequest());
+        view.getBtnDelete().addActionListener(e -> deleteRequest());
+        view.getLstRequests().setListData(Secretary.getRequests());
+    }
+    
+    private void actionRequest() {
+       
+    }
+        
+    private void deleteRequest() {
+        Secretary.deleteRequest(view.getLstRequests().getSelectedValue());
+        initController();
     }
     
     private void logout(){

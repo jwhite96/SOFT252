@@ -5,14 +5,27 @@
  */
 package requests;
 
+import accounts.*;
+import java.io.Serializable;
+
 /**
  *
  * @author James
  */
-public class DeleteRequest extends Request{
+public class DeleteRequest extends Request implements Serializable {
     
-    public DeleteRequest() {
+    public DeleteRequest(String ID, Account account) {
+        this.ID = ID;
+        this.Account = account;
         this.requestType = "DELETE";
     }  
+
+    public DeleteRequest() {
+    }
+         
+    @Override
+    public String toString(){
+        return Account.getID() + " " + Account.getFirstName() + " " + Account.getSurname() + ": " + requestType;
+    }
     
 }

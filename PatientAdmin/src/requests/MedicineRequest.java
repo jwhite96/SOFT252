@@ -5,6 +5,8 @@
  */
 package requests;
 
+import accounts.*;
+
 /**
  *
  * @author James
@@ -14,7 +16,9 @@ public class MedicineRequest extends Request {
     private String medicine;
     private int quantity;
     
-    public MedicineRequest() {
+    public MedicineRequest(String ID, Account account) {
+        this.ID = ID;
+        this.Account = account;
         this.requestType = "MEDICINE";
     }  
 }
