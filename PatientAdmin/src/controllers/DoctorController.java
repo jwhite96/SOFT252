@@ -31,7 +31,7 @@ public class DoctorController {
     }
     
     private void logout(){
-        new LoginController();
         view.setVisible(false);
+        new LoginController();
     }
 }

@@ -6,6 +6,7 @@
 package requests;
 
 import accounts.*;
+import appointments.Appointment;
 import java.io.Serializable;
 
 /**
@@ -15,13 +16,13 @@ import java.io.Serializable;
 public class AppointmentRequest extends Request implements Serializable {
     
     private Doctor doctor;
-    private String date;
-    
-    public AppointmentRequest(String ID, Account account, Doctor doctor, String date) {
+    private String dateTime;
+        
+    public AppointmentRequest(String ID, Account account, Doctor doctor, String dateTime) {
         this.ID = ID;
         this.Account = account;
         this.doctor = doctor;
-        this.date = date;
+        this.dateTime = dateTime;
         this.requestType = "APPOINTMENT";
     }
         
@@ -30,6 +31,26 @@ public class AppointmentRequest extends Request implements Serializable {
     
     @Override
     public String toString(){
-        return Account.getID() + " " + Account.getFirstName() + " " + Account.getSurname() + ": " + requestType;
+        return Account.getID() + " " + Account.getFirstName() + " " + Account.getSurname() + ": " + requestType + " [" + doctor + ": " + dateTime + "]" ;
     }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    public String getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    
+    
+    
 }

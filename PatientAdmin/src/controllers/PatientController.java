@@ -8,6 +8,7 @@ package controllers;
 import accounts.*;
 import view.PatientHome;
 import accounts.Patient;
+import appointments.Appointment;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import serialization.AccountSingleton;

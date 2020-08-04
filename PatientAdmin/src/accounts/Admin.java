@@ -31,12 +31,13 @@ public class Admin extends Account implements Serializable {
         return AccountSingleton.generateID(accountType);
     }
     
-    public static void createAccount(String ID, String password, String firstName, String surname, String address, String gender, int age, String accountType){
-        AccountSingleton.createAccount(ID, password, firstName, surname, address, gender, age, accountType);
+    public static void createAccount(String ID, String password, String firstName, String surname, String address, String accountType){
+        AccountSingleton.createAccount(ID, password, firstName, surname, address, accountType);
     }
         
     public static void removeAccount(String account){
-        AccountSingleton.deleteAccount(account);
+        Account a = AccountSingleton.convertToObject(account);
+        AccountSingleton.deleteAccount(a);
     }
     
     public static String [] getAccounts(String accountType) {

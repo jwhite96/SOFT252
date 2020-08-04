@@ -63,10 +63,8 @@ public class AccountSingleton implements Serializable {
      * @param surname - users surname
      * @param address = users address
      * @param accountType - account type of the user [Admin, Doctor, Patient or Secretary]
-     * @param age - age used for patient accounts - all other accounts return null
-     * @param gender - gender used for patient accounts - all other accounts return null
      */
-    public static void createAccount(String ID, String password, String firstName, String surname, String address, String gender, int age, String accountType) {
+    public static void createAccount(String ID, String password, String firstName, String surname, String address, String accountType) {
                 
         accountsList = getAccounts();
         
@@ -76,9 +74,6 @@ public class AccountSingleton implements Serializable {
                 break;
             case "ADMIN":
                 accountsList.add(new Admin(ID, password, firstName, surname, address));
-                break;
-            case "PATIENT":
-                accountsList.add(new Patient(ID, password, firstName, surname, address, gender, age));
                 break;
             case "SECRETARY":
                 accountsList.add(new Secretary(ID, password, firstName, surname, address));
@@ -99,16 +94,18 @@ public class AccountSingleton implements Serializable {
         return null;
     }
     
-    public static void deleteAccount(String account) {
-        
-        Account i = convertToObject(account);
-        
+    public static void addAccount(Account a) {
+        accountsList.add(a);
+        updateAccounts();
+    }
+    
+    public static void deleteAccount(Account a) {
+                
         //remove account object
-        if (accountsList.contains(i)) {
-            accountsList.remove(i);
+        if (accountsList.contains(a)) {
+            accountsList.remove(a);
         }
-           
-        //update xml
+
         updateAccounts();
     }
     

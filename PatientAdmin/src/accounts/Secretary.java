@@ -6,7 +6,6 @@
 package accounts;
 
 import java.io.Serializable;
-import serialization.AppointmentSingleton;
 import serialization.RequestSingleton;
 
 /**
@@ -27,8 +26,8 @@ public class Secretary extends Account implements Serializable {
     public Secretary() {
     }
     
-    public static void actionRequest() {
-        
+    public static void actionRequest(String request) {
+        RequestSingleton.actionRequest(request);
     }
     
     public static void deleteRequest(String request) {

@@ -36,12 +36,14 @@ public class AdminController {
     
     private void deleteDoctor() {        
         Admin.removeAccount(view.getLstDoctors().getSelectedValue());
-        initController();
+        view.getLstDoctors().setListData(Admin.getAccounts("DOCTOR"));
+        view.getLstSecretary().setListData(Admin.getAccounts("SECRETARY"));
     }
     
     private void deleteSecreatary() {
         Admin.removeAccount(view.getLstSecretary().getSelectedValue());
-        initController();
+        view.getLstDoctors().setListData(Admin.getAccounts("DOCTOR"));
+        view.getLstSecretary().setListData(Admin.getAccounts("SECRETARY"));
     }
     
     private void create() {

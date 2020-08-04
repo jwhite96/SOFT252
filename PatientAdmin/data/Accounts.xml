@@ -38,10 +38,32 @@
      <string>James</string>
     </void>
     <void property="password">
-     <string>pass</string>
+     <string>ass</string>
     </void>
     <void property="surname">
      <string>White</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="accounts.Secretary">
+    <void property="ID">
+     <string>S1001</string>
+    </void>
+    <void property="accountType">
+     <string>SECRETARY</string>
+    </void>
+    <void property="address">
+     <string>Plymouth</string>
+    </void>
+    <void property="firstName">
+     <string>Karen</string>
+    </void>
+    <void property="password">
+     <string>ass</string>
+    </void>
+    <void property="surname">
+     <string>Fisher</string>
     </void>
    </object>
   </void>
@@ -54,13 +76,19 @@
      <string>PATIENT</string>
     </void>
     <void property="address">
-     <string>Hemel</string>
+     <string>Hemel Hempstead</string>
+    </void>
+    <void property="age">
+     <int>24</int>
     </void>
     <void property="firstName">
      <string>James</string>
     </void>
+    <void property="gender">
+     <string>Male</string>
+    </void>
     <void property="password">
-     <string>pass</string>
+     <string>ass</string>
     </void>
     <void property="surname">
      <string>White</string>
@@ -68,46 +96,30 @@
    </object>
   </void>
   <void method="add">
-   <object class="accounts.Secretary">
-    <void property="ID">
-     <string>S9899</string>
-    </void>
-    <void property="accountType">
-     <string>SECRETARY</string>
-    </void>
-    <void property="address">
-     <string>London</string>
-    </void>
-    <void property="firstName">
-     <string>Karen</string>
-    </void>
-    <void property="password">
-     <string>pass</string>
-    </void>
-    <void property="surname">
-     <string>Fisher</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
    <object class="accounts.Patient">
     <void property="ID">
-     <string>P5660</string>
+     <string>P2330</string>
     </void>
     <void property="accountType">
      <string>PATIENT</string>
     </void>
     <void property="address">
-     <string>dsa</string>
+     <string>test</string>
+    </void>
+    <void property="age">
+     <int>15</int>
     </void>
     <void property="firstName">
-     <string>dsa</string>
+     <string>test</string>
+    </void>
+    <void property="gender">
+     <string>Male</string>
     </void>
     <void property="password">
-     <string>ds</string>
+     <string>ass</string>
     </void>
     <void property="surname">
-     <string>sda</string>
+     <string>test</string>
     </void>
    </object>
   </void>

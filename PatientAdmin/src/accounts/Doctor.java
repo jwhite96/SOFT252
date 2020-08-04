@@ -54,6 +54,14 @@ public class Doctor extends Account implements Serializable {
  
     @Override
     public String toString(){
-        return ID + ": Dr " + firstName + " " + surname + " - " + rating;
+        return ID + ": Dr " + firstName + " " + surname;
     }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    } 
 }

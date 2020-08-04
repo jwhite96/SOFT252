@@ -16,7 +16,8 @@ public abstract class Request implements Serializable {
     protected String ID;
     protected Account Account;
     protected String requestType;
-
+    private AppointmentRequest appointment;
+    
     public Request() {
     }
 
@@ -44,5 +45,13 @@ public abstract class Request implements Serializable {
         this.requestType = requestType;
     }
 
+    public AppointmentRequest getAppointment() {
+        return appointment;
+    }
+
+    public void setAppointment(AppointmentRequest appointment) {
+        this.appointment = appointment;
+    }
+    
     
 }

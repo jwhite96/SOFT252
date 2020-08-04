@@ -5,7 +5,6 @@
  */
 package serialization;
 
-import accounts.*;
 import appointments.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -21,12 +20,8 @@ public class AppointmentSingleton implements Serializable {
     public AppointmentSingleton() {
     }
         
-    public static void createAppointment(Doctor doctor, Patient patient, String dateTime, String notes) {
-                
-        appointments = getAppointments();
-
-        appointments.add(new Appointment(doctor, patient, dateTime, notes));
-         
+    public static void addAppointment(Appointment a) {
+        appointments.add(a);
         updateAppointments();
     }
     

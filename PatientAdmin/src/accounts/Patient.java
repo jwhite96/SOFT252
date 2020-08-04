@@ -5,8 +5,8 @@
  */
 package accounts;
 
+import appointments.Appointment;
 import java.io.Serializable;
-import serialization.AppointmentSingleton;
 import serialization.RequestSingleton;
 
 /**
@@ -37,14 +37,6 @@ public class Patient extends Account implements Serializable{
         RequestSingleton.createRequest(account, "CREATE", null, null);
     }
     
-    public static void provideFeedback(){
-        
-    }
-    
-    public static void viewRatings(){
-        
-    }
-    
     public static void requestAppointment(Account patient, Doctor doctor, String dateTime){
         RequestSingleton.createRequest(patient, "APPOINTMENT", doctor, dateTime);
     }
@@ -57,5 +49,23 @@ public class Patient extends Account implements Serializable{
     public String toString(){
         return ID + " " + firstName + " " + surname;
     }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+    
+    
     
 }

@@ -44,16 +44,18 @@ public class AddAccountController {
         else 
         {
             String ID = Admin.generateID(accountType);
-            Admin.createAccount(ID, password, firstName, surname, address, null, 0, accountType);
+            Admin.createAccount(ID, password, firstName, surname, address, accountType);
             JOptionPane.showMessageDialog(null, "Account Created. Your User ID is: " + ID);
         }
         
-        view.setVisible(false);
         new AdminController(admin);
+        view.setVisible(false);
+        
     }
     
     private void back(){
-        view.setVisible(false);
         new AdminController(admin);
+        view.setVisible(false);
+        
     }
 }

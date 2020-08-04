@@ -33,7 +33,7 @@ public class RequestAccountController {
         String surname = view.getTxtSurname().getText();
         String address = view.getTxtAddress().getText();
         int age = (Integer) view.getSpnAge().getValue();
-        String gender = view.getCmbGender().toString();
+        String gender = view.getCmbGender().getSelectedItem().toString();
         String password = String.valueOf(view.getTxtPassword().getPassword());
 
         if (firstName.isEmpty() || surname.isEmpty() || address.isEmpty() || password.isEmpty()){
@@ -52,8 +52,8 @@ public class RequestAccountController {
     }
     
     private void back() {
-        new LoginController();
         view.setVisible(false);
+        new LoginController();
     }
     
 }

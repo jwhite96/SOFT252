@@ -6,13 +6,12 @@
 package serialization;
 
 import accounts.*;
+import appointments.Appointment;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 import requests.*;
-import static serialization.AccountSingleton.convertToObject;
-import static serialization.AccountSingleton.updateAccounts;
 
 /**
  *
@@ -43,10 +42,10 @@ public class RequestSingleton implements Serializable {
      * 
      * @param account - account making the request
      * @param requestType - request type
-     * @param doctor - doctor for appointment request
-     * @param date - date for appointment request
+     * @param doctor - requested doctor for appointments ONLY
+     * @param dateTime - request dateTime for appointments ONLY
      */
-    public static void createRequest(Account account, String requestType, Doctor doctor, String date) {
+    public static void createRequest(Account account, String requestType, Doctor doctor, String dateTime) {
                 
         String ID = generateID();
         
@@ -57,7 +56,7 @@ public class RequestSingleton implements Serializable {
                 requests.add(new CreateRequest(ID, account));
                 break;
             case "APPOINTMENT":
-                requests.add(new AppointmentRequest(ID, account, doctor, date));
+                requests.add(new AppointmentRequest(ID, account, doctor, dateTime));
                 break;
             case "DELETE":
                 requests.add(new DeleteRequest(ID ,account));
@@ -71,21 +70,54 @@ public class RequestSingleton implements Serializable {
         updateRequests();
     }
     
-    public static Request convertToObject(String account) {
+    public static Request convertToObject(String request) {
         
         for (Request i : requests) {
-           if (account.contains(i.getRequestType())){
+           if (request.contains(i.getRequestType())){
                return i;
            }
         }
         return null;
     }
     
+    /**
+     * 
+     * @param request - request that is being actioned
+     */
+    public static void actionRequest(String request) {
+        
+        Request r = convertToObject(request); //convert to object
+        Account a = r.getAccount(); //account making the request               
+        
+        if (null != r.getRequestType())switch (r.getRequestType()) {
+            case "CREATE":
+                AccountSingleton.addAccount(a);
+                deleteRequest(request);
+                break;
+            case "DELETE":  
+                AccountSingleton.deleteAccount(a);
+                deleteRequest(request);
+                break;
+            case "APPOINTMENT":
+                Doctor d = r.getAppointment().getDoctor();
+                String dateTime = r.getAppointment().getDateTime();                
+                Appointment e = new Appointment((Patient) a, d, dateTime, " ");
+                AppointmentSingleton.addAppointment(e);
+                deleteRequest(request);
+                break;
+            case "MEDICINE":
+                
+                break;
+            default:
+                break;
+        }  
+    }
+    
     public static void deleteRequest(String request) {
         
         Request i = convertToObject(request);
         
-        //remove account object
+        //remove request object
         if (requests.contains(i)) {
             requests.remove(i);
         }
@@ -100,7 +132,7 @@ public class RequestSingleton implements Serializable {
     
     /**
      * 
-     * @return full list of all appointments
+     * @return full list of all requests
      */
     public static ArrayList getRequests() {
         requests = RequestSerialiser.xmlDecoder(requests, "data/Requests.xml");
@@ -109,7 +141,6 @@ public class RequestSingleton implements Serializable {
     
     /**
      * 
-     * @param requestType
      * @return string array of requests sorted by type
      */
     public static String [] convertToArray(){

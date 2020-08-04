@@ -13,14 +13,14 @@ import java.io.Serializable;
  */
 public class Appointment implements Serializable {
     
-    private Doctor doctor;
     private Patient patient;
+    private Doctor doctor;
     private String date;
     private String notes;
 
-    public Appointment(Doctor doctor, Patient patient, String date, String notes) {
-        this.doctor = doctor;
+    public Appointment(Patient patient, Doctor doctor, String date, String notes) {
         this.patient = patient;
+        this.doctor = doctor;
         this.date = date;
         this.notes = notes;
     }
@@ -59,7 +59,4 @@ public class Appointment implements Serializable {
     public void setNotes(String notes) {
         this.notes = notes;
     }
-    
-    
-    
 }
