@@ -34,7 +34,7 @@ public class PatientController {
     public void initController() {
         view.getBtnLogout().addActionListener(e -> logout());
         view.getBtnSubmit().addActionListener(e -> requestAppointment());
-        view.getBtnDelete().addActionListener(e -> deleteRequest());
+        view.getBtnDelete().addActionListener(e -> deleteAccount());
         view.getCmbDoctor().setModel(new DefaultComboBoxModel(Admin.getAccounts("DOCTOR")));
     }
     
@@ -56,8 +56,8 @@ public class PatientController {
         JOptionPane.showMessageDialog(null, "Your appointment request has been received. Thank You");
     }
     
-    private void deleteRequest() {
-        Patient.deleteAccount(patient);
+    private void deleteAccount() {
+        Patient.deleteAccount((Account) patient);
     }
     
 }

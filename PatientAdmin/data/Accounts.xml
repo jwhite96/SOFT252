@@ -95,33 +95,5 @@
     </void>
    </object>
   </void>
-  <void method="add">
-   <object class="accounts.Patient">
-    <void property="ID">
-     <string>P2330</string>
-    </void>
-    <void property="accountType">
-     <string>PATIENT</string>
-    </void>
-    <void property="address">
-     <string>test</string>
-    </void>
-    <void property="age">
-     <int>15</int>
-    </void>
-    <void property="firstName">
-     <string>test</string>
-    </void>
-    <void property="gender">
-     <string>Male</string>
-    </void>
-    <void property="password">
-     <string>ass</string>
-    </void>
-    <void property="surname">
-     <string>test</string>
-    </void>
-   </object>
-  </void>
  </object>
 </java>

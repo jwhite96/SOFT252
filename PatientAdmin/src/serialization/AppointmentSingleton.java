@@ -19,7 +19,7 @@ public class AppointmentSingleton implements Serializable {
 
     public AppointmentSingleton() {
     }
-        
+            
     public static void addAppointment(Appointment a) {
         appointments.add(a);
         updateAppointments();

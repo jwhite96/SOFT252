@@ -87,7 +87,7 @@ public class RequestSingleton implements Serializable {
     public static void actionRequest(String request) {
         
         Request r = convertToObject(request); //convert to object
-        Account a = r.getAccount(); //account making the request               
+        Account a = r.getAccount(); //account making the request             
         
         if (null != r.getRequestType())switch (r.getRequestType()) {
             case "CREATE":
@@ -95,10 +95,10 @@ public class RequestSingleton implements Serializable {
                 deleteRequest(request);
                 break;
             case "DELETE":  
-                AccountSingleton.deleteAccount(a);
+                AccountSingleton.deleteAccount(AccountSingleton.convertToObject(a.getID()));
                 deleteRequest(request);
                 break;
-            case "APPOINTMENT":
+            case "APPOINTMENT": //not working
                 Doctor d = r.getAppointment().getDoctor();
                 String dateTime = r.getAppointment().getDateTime();                
                 Appointment e = new Appointment((Patient) a, d, dateTime, " ");

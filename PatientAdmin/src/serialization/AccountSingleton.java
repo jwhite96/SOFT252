@@ -66,7 +66,7 @@ public class AccountSingleton implements Serializable {
      */
     public static void createAccount(String ID, String password, String firstName, String surname, String address, String accountType) {
                 
-        accountsList = getAccounts();
+        getAccounts();
         
         if (null != accountType)switch (accountType) {
             case "DOCTOR":
@@ -100,12 +100,16 @@ public class AccountSingleton implements Serializable {
     }
     
     public static void deleteAccount(Account a) {
-                
+        
+        System.out.println(a);
+        
         //remove account object
         if (accountsList.contains(a)) {
             accountsList.remove(a);
         }
-
+        
+        System.out.println(accountsList);
+        
         updateAccounts();
     }
     
