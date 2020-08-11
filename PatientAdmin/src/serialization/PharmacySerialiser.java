@@ -5,7 +5,6 @@
  */
 package serialization;
 
-import singleton.AccountSingleton;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.BufferedInputStream;
@@ -17,51 +16,52 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import requests.Request;
+import pharmacy.Medicine;
+import singleton.MedicineSingleton;
 
 /**
  *
  * @author James
  */
-public class RequestSerialiser implements Serializable {
+public class PharmacySerialiser implements Serializable {
     
-    public RequestSerialiser() {
+    public PharmacySerialiser() {
     }
     
     /**
      * 
-     * @param requests
+     * @param accountsList - current ArrayList of accounts after each update
      * @param XML - name of the XML file
      */
-    public static void xmlEncoder(ArrayList<Request> requests, String XML) {
+    public static void xmlEncoder(ArrayList<Medicine> accountsList, String XML) {
         
         try {
             XMLEncoder e = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(XML)));
-            e.writeObject(requests);
+            e.writeObject(accountsList);
             e.close();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(AccountSingleton.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MedicineSingleton.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
     /**
      * 
-     * @param requests
+     * @param accountsList
      * @param XML
      * @return ArrayList of saved accounts in the XML file
      */
-    public static ArrayList xmlDecoder(ArrayList<Request> requests, String XML) {
+    public static ArrayList xmlDecoder(ArrayList<Medicine> accountsList, String XML) {
     
         try {
             XMLDecoder d = new XMLDecoder(new BufferedInputStream(new FileInputStream(XML)));            
-            ArrayList<Request> savedRequests = (ArrayList<Request>) d.readObject();
+            ArrayList<Medicine> savedAccounts = (ArrayList<Medicine>) d.readObject();
             d.close();  
             
-            return savedRequests;
+            return savedAccounts;
             
         } catch (FileNotFoundException ex) {
             
-            Logger.getLogger(AccountSingleton.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MedicineSingleton.class.getName()).log(Level.SEVERE, null, ex);
             
             return null;
         }

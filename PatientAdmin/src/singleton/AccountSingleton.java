@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package serialization;
+package singleton;
 
 import accounts.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
+import serialization.AccountSerialiser;
 
 /**
  *
@@ -100,16 +101,12 @@ public class AccountSingleton implements Serializable {
     }
     
     public static void deleteAccount(Account a) {
-        
-        System.out.println(a);
-        
+                
         //remove account object
         if (accountsList.contains(a)) {
             accountsList.remove(a);
         }
-        
-        System.out.println(accountsList);
-        
+                
         updateAccounts();
     }
     

@@ -7,7 +7,7 @@ package controllers;
 
 import accounts.Account;
 import java.util.ArrayList;
-import serialization.AccountSingleton;
+import singleton.AccountSingleton;
 import view.Login;
 
 /**

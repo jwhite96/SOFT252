@@ -16,10 +16,11 @@ public class MedicineRequest extends Request {
     private String medicine;
     private int quantity;
     
-    public MedicineRequest(String ID, Account account) {
-        this.ID = ID;
+    public MedicineRequest(Account account, String medicine, int quantity) {
         this.Account = account;
         this.requestType = "MEDICINE";
+        this.medicine = medicine;
+        this.quantity = quantity;
     }  
 
     public String getMedicine() {
@@ -37,6 +38,4 @@ public class MedicineRequest extends Request {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    
-    
 }

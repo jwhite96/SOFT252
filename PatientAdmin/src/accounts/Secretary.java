@@ -6,7 +6,7 @@
 package accounts;
 
 import java.io.Serializable;
-import serialization.RequestSingleton;
+import singleton.RequestSingleton;
 
 /**
  *

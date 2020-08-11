@@ -6,6 +6,8 @@
 package accounts;
 
 import java.io.Serializable;
+import singleton.AppointmentSingleton;
+import singleton.RequestSingleton;
 
 /**
  *
@@ -28,35 +30,14 @@ public class Doctor extends Account implements Serializable {
     public Doctor() {
     }
     
-    public void viewAppointments(){
-        
+    public static String [] viewAppointments(Doctor doctor){
+        return AppointmentSingleton.getDoctorAppointments(doctor);
     }
     
-    public void createNotes(){
-        
+    public static void requestStock(Account doctor, String medicine, int quantity) {
+        RequestSingleton.createRequest(doctor, "MEDICINE", null, null, medicine, quantity);
     }
-    
-    public void viewPatientHistory(){
-        
-    }
-    
-    public void createAppointment(){
-        
-    }
-    
-    public void createPrescription(){
-        
-    }
-    
-    public void requestMedicine(){
-        
-    }   
- 
-    @Override
-    public String toString(){
-        return ID + ": Dr " + firstName + " " + surname;
-    }
-
+            
     public int getRating() {
         return rating;
     }
@@ -64,4 +45,9 @@ public class Doctor extends Account implements Serializable {
     public void setRating(int rating) {
         this.rating = rating;
     } 
+    
+    @Override
+    public String toString(){
+        return ID + ": Dr " + firstName + " " + surname;
+    }    
 }

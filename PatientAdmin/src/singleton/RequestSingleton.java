@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package serialization;
+package singleton;
 
 import accounts.*;
 import appointments.Appointment;
-
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Random;
+import pharmacy.Medicine;
 import requests.*;
+import serialization.RequestSerialiser;
 
 /**
  *
@@ -22,21 +22,7 @@ public class RequestSingleton implements Serializable {
     private static ArrayList<Request> requests = new ArrayList<>();
 
     public RequestSingleton() {
-    }
-    
-    /**
-     * 
-     * @return randomly generated ID
-     */
-    public static String generateID(){
-               
-        Random rand = new Random();
-        String digits = Integer.toString(rand.nextInt(10000));
-               
-        String ID = "R" + digits;
-        
-        return ID;
-    }        
+    }  
     
     /**
      * 
@@ -44,25 +30,25 @@ public class RequestSingleton implements Serializable {
      * @param requestType - request type
      * @param doctor - requested doctor for appointments ONLY
      * @param dateTime - request dateTime for appointments ONLY
+     * @param medicine - medicine for stock requests ONLY
+     * @param quantity - quantity for stock requests ONLY
      */
-    public static void createRequest(Account account, String requestType, Doctor doctor, String dateTime) {
-                
-        String ID = generateID();
-        
+    public static void createRequest(Account account, String requestType, Doctor doctor, String dateTime, String medicine, int quantity) {
+                        
         requests = getRequests();
         
         if (null != requestType)switch (requestType) {
             case "CREATE":
-                requests.add(new CreateRequest(ID, account));
+                requests.add(new CreateRequest(account));
                 break;
             case "APPOINTMENT":
-                requests.add(new AppointmentRequest(ID, account, doctor, dateTime));
+                requests.add(new AppointmentRequest(account, doctor, dateTime));
                 break;
             case "DELETE":
-                requests.add(new DeleteRequest(ID ,account));
+                requests.add(new DeleteRequest(account));
                 break;
             case "MEDICINE":
-                requests.add(new MedicineRequest(ID, account));
+                requests.add(new MedicineRequest(account, medicine, quantity));
                 break;
             default:
                 break;
@@ -79,34 +65,40 @@ public class RequestSingleton implements Serializable {
         }
         return null;
     }
-    
+        
     /**
      * 
      * @param request - request that is being actioned
      */
     public static void actionRequest(String request) {
         
-        Request r = convertToObject(request); //convert to object
-        Account a = r.getAccount(); //account making the request             
+        Request r = convertToObject(request); //convert to request object
+        Account a = r.getAccount(); //account making the request
         
         if (null != r.getRequestType())switch (r.getRequestType()) {
             case "CREATE":
                 AccountSingleton.addAccount(a);
                 deleteRequest(request);
                 break;
-            case "DELETE":  
+            case "DELETE":
                 AccountSingleton.deleteAccount(AccountSingleton.convertToObject(a.getID()));
                 deleteRequest(request);
                 break;
-            case "APPOINTMENT": //not working
-                Doctor d = r.getAppointment().getDoctor();
-                String dateTime = r.getAppointment().getDateTime();                
-                Appointment e = new Appointment((Patient) a, d, dateTime, " ");
-                AppointmentSingleton.addAppointment(e);
+            case "APPOINTMENT":
+                AppointmentRequest e = (AppointmentRequest) r;
+                Doctor d = e.getDoctor();
+                String dateTime = e.getDateTime();
+                Appointment newAppointment = new Appointment((Patient) a, d, dateTime, " ");
+                AppointmentSingleton.addAppointment(newAppointment);
                 deleteRequest(request);
                 break;
             case "MEDICINE":
-                
+                MedicineRequest m = (MedicineRequest) r;
+                String medicine = m.getMedicine();
+                int quantity = m.getQuantity();
+                Medicine newOrder = new Medicine(medicine, quantity);
+                MedicineSingleton.addMedicine(newOrder);
+                deleteRequest(request);
                 break;
             default:
                 break;

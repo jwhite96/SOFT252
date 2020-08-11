@@ -7,6 +7,7 @@ package controllers;
 
 import accounts.Account;
 import accounts.Doctor;
+import javax.swing.JOptionPane;
 import view.DoctorHome;
 
 /**
@@ -28,6 +29,15 @@ public class DoctorController {
         
     public void initController() {
         view.getBtnLogout().addActionListener(e -> logout());
+        view.getBtnCreate().addActionListener(e -> newOrder());
+        view.getLstAppointments().setListData(Doctor.viewAppointments((Doctor) doctor));
+            }
+    
+    private void newOrder() {
+        String name = view.getTxtMedicine().getText();
+        int age = (Integer) view.getSpnQuantity().getValue();
+        Doctor.requestStock(doctor, name, age);
+        JOptionPane.showMessageDialog(null, "Your stock request has been received. Thank You");
     }
     
     private void logout(){

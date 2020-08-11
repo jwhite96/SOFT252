@@ -5,6 +5,7 @@
  */
 package serialization;
 
+import singleton.AccountSingleton;
 import accounts.Account;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;

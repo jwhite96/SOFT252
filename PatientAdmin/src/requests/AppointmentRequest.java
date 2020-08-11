@@ -6,7 +6,6 @@
 package requests;
 
 import accounts.*;
-import appointments.Appointment;
 import java.io.Serializable;
 
 /**
@@ -18,8 +17,7 @@ public class AppointmentRequest extends Request implements Serializable {
     private Doctor doctor;
     private String dateTime;
         
-    public AppointmentRequest(String ID, Account account, Doctor doctor, String dateTime) {
-        this.ID = ID;
+    public AppointmentRequest(Account account, Doctor doctor, String dateTime) {
         this.Account = account;
         this.doctor = doctor;
         this.dateTime = dateTime;
@@ -48,9 +46,5 @@ public class AppointmentRequest extends Request implements Serializable {
 
     public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
-    }
-
-    
-    
-    
+    } 
 }

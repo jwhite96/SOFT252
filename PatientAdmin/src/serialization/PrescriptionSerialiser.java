@@ -5,6 +5,7 @@
  */
 package serialization;
 
+import singleton.AccountSingleton;
 import appointments.Prescription;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;

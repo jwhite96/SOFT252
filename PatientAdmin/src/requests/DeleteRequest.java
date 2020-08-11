@@ -14,8 +14,7 @@ import java.io.Serializable;
  */
 public class DeleteRequest extends Request implements Serializable {
     
-    public DeleteRequest(String ID, Account account) {
-        this.ID = ID;
+    public DeleteRequest(Account account) {
         this.Account = account;
         this.requestType = "DELETE";
     }  

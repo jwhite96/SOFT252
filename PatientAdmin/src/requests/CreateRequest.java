@@ -14,8 +14,7 @@ import java.io.Serializable;
  */
 public class CreateRequest extends Request implements Serializable{
     
-    public CreateRequest(String ID, Account account) {
-        this.ID = ID;
+    public CreateRequest(Account account) {
         this.Account = account;
         this.requestType = "CREATE";
     }

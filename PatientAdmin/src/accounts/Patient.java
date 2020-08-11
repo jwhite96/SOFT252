@@ -7,7 +7,7 @@ package accounts;
 
 import appointments.Appointment;
 import java.io.Serializable;
-import serialization.RequestSingleton;
+import singleton.RequestSingleton;
 
 /**
  *
@@ -34,15 +34,15 @@ public class Patient extends Account implements Serializable{
     }
     
     public static void requestAccount(Account account){
-        RequestSingleton.createRequest(account, "CREATE", null, null);
+        RequestSingleton.createRequest(account, "CREATE", null, null, null, 0);
     }
     
     public static void requestAppointment(Account patient, Doctor doctor, String dateTime){
-        RequestSingleton.createRequest(patient, "APPOINTMENT", doctor, dateTime);
+        RequestSingleton.createRequest(patient, "APPOINTMENT", doctor, dateTime, null, 0);
     }
     
     public static void deleteAccount(Account account) {
-        RequestSingleton.createRequest(account, "DELETE", null, null);
+        RequestSingleton.createRequest(account, "DELETE", null, null, null, 0);
     }
     
     @Override

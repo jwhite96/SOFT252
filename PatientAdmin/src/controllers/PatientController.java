@@ -11,7 +11,7 @@ import accounts.Patient;
 import appointments.Appointment;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
-import serialization.AccountSingleton;
+import singleton.AccountSingleton;
 
 
 /**

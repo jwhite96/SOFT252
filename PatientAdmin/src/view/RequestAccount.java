@@ -82,6 +82,7 @@ public class RequestAccount extends javax.swing.JFrame {
         cmbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
 
         spnAge.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        spnAge.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         spnAge.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -109,7 +110,7 @@ public class RequestAccount extends javax.swing.JFrame {
                             .addComponent(txtSurname)
                             .addComponent(txtAddress)))
                     .addComponent(cmbGender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(spnAge, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spnAge))
                 .addGap(94, 94, 94))
         );
         layout.setVerticalGroup(
