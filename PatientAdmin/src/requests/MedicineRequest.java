@@ -6,12 +6,13 @@
 package requests;
 
 import accounts.*;
+import java.io.Serializable;
 
 /**
  *
  * @author James
  */
-public class MedicineRequest extends Request {
+public class MedicineRequest extends Request implements Serializable {
     
     private String medicine;
     private int quantity;
@@ -22,6 +23,9 @@ public class MedicineRequest extends Request {
         this.medicine = medicine;
         this.quantity = quantity;
     }  
+
+    public MedicineRequest() {
+    }
 
     public String getMedicine() {
         return medicine;
@@ -37,5 +41,10 @@ public class MedicineRequest extends Request {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+    
+    @Override
+    public String toString(){
+        return Account.getID() + " " + Account.getFirstName() + " " + Account.getSurname() + ": " + requestType + " [" + medicine + ": " + quantity + "]" ;
     }
 }

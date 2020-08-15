@@ -27,11 +27,6 @@ public class AppointmentRequest extends Request implements Serializable {
     public AppointmentRequest() {
     }
     
-    @Override
-    public String toString(){
-        return Account.getID() + " " + Account.getFirstName() + " " + Account.getSurname() + ": " + requestType + " [" + doctor + ": " + dateTime + "]" ;
-    }
-
     public Doctor getDoctor() {
         return doctor;
     }
@@ -47,4 +42,10 @@ public class AppointmentRequest extends Request implements Serializable {
     public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
     } 
+    
+    @Override
+    public String toString(){
+        return Account.getID() + " " + Account.getFirstName() + " " + Account.getSurname() + ": " + requestType + " [" + doctor + ": " + dateTime + "]" ;
+    }
+
 }

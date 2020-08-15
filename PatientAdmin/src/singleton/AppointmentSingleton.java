@@ -46,7 +46,7 @@ public class AppointmentSingleton implements Serializable {
         
         ArrayList<Appointment> appoinmentList = new ArrayList<>();    
         
-        // loop through list of accounts and find all of the same account type
+        // loop through list of appointments and return all for specified doctor
         for (Appointment i : appointments) {
             if (i.getDoctor().equals(doctor)) {
                 appoinmentList.add(i);
@@ -60,7 +60,7 @@ public class AppointmentSingleton implements Serializable {
         for (int j = 0; j < appoinmentList.size(); j++) {
             list[j] = appoinmentList.get(j).toString();
         }        
-        
+                
         return list;
     }    
 }

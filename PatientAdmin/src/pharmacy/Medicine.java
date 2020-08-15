@@ -5,11 +5,13 @@
  */
 package pharmacy;
 
+import java.io.Serializable;
+
 /**
  *
  * @author James
  */
-public class Medicine {
+public class Medicine implements Serializable {
     
     private String medicine;
     private int quantity;
@@ -19,6 +21,9 @@ public class Medicine {
         this.quantity = quantity;
     }
 
+    public Medicine() {
+    }
+    
     public String getMedicine() {
         return medicine;
     }
@@ -37,6 +42,6 @@ public class Medicine {
     
     @Override
     public String toString(){
-        return medicine + ": " + quantity;
+        return medicine + ": " + quantity + " Units";
     }    
 }

@@ -33,6 +33,7 @@ public class SecretaryController {
         view.getBtnDelete().addActionListener(e -> deleteRequest());
         view.getBtnRemove().addActionListener(e -> removeAccount());
         view.getLstRequests().setListData(Secretary.getRequests());
+        view.getLstStock().setListData(Secretary.getPharmacy());
         view.getLstPatients().setListData(Admin.getAccounts("PATIENT"));
     }
     

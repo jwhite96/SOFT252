@@ -13,7 +13,7 @@ import singleton.RequestSingleton;
  *
  * @author James
  */
-public class Patient extends Account implements Serializable{
+public class Patient extends Account implements Serializable {
     
     private String gender;
     private int age;

@@ -27,14 +27,14 @@ public class MedicineSingleton implements Serializable {
      */
     public static void addMedicine(Medicine medicine) {
                 
-        getStock();
+        // getStock();
         
         stockList.add(medicine);
         updateStock();
     }
     
     public static void updateStock() {
-        PharmacySerialiser.xmlEncoder(stockList, "data/Accounts.xml");
+        PharmacySerialiser.xmlEncoder(stockList, "data/Pharmacy.xml");
     }
     
     /**
@@ -42,8 +42,27 @@ public class MedicineSingleton implements Serializable {
      * @return full list of users
      */
     public static ArrayList getStock() {
-        stockList = PharmacySerialiser.xmlDecoder(stockList, "data/Accounts.xml");
+        stockList = PharmacySerialiser.xmlDecoder(stockList, "data/Pharmacy.xml");
         return stockList;
-    }       
+    }
+    
+    /**
+     * 
+     * @return string array of pharmacy stock
+     */
+    public static String [] convertToArray(){
+             
+        getStock();
+        
+        //create new string array for converted list
+        String[] list = new String[stockList.size()];
+              
+        //loop through arraylist and put into string array
+        for (int j = 0; j < stockList.size(); j++) {
+            list[j] = stockList.get(j).toString();
+        }        
+        
+        return list;
+    }    
 }
 

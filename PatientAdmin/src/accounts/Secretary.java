@@ -6,6 +6,7 @@
 package accounts;
 
 import java.io.Serializable;
+import singleton.MedicineSingleton;
 import singleton.RequestSingleton;
 
 /**
@@ -38,6 +39,10 @@ public class Secretary extends Account implements Serializable {
         return RequestSingleton.convertToArray();
     }
 
+    public static String [] getPharmacy() {
+        return MedicineSingleton.convertToArray();
+    }
+    
     @Override
     public String toString(){
         return ID + ": " + firstName + " " + surname;

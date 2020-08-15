@@ -133,7 +133,7 @@ public class RequestSingleton implements Serializable {
     
     /**
      * 
-     * @return string array of requests sorted by type
+     * @return string array of requests
      */
     public static String [] convertToArray(){
              
@@ -149,5 +149,4 @@ public class RequestSingleton implements Serializable {
         
         return list;
     }    
-    
 }
