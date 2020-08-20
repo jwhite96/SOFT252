@@ -10,7 +10,6 @@ Referred Assessment Submisson for SOFT252
 - If two appointments exist with the same date from the same user it won't recognise which appointment you wish to view
 
 ### Test Accounts:
-**Note: Must be exact - No Caps or spaces**
 #### Admin:
 - **Username:** A1001
 - **Password:** admin
