@@ -15,7 +15,7 @@ Referred Assessment Submisson for SOFT252
 - **Username:** A1001
 - **Password:** admin
 
-- The below accounts have the Password: password
+**The below accounts have the Password: password**
 #### Doctor:
 - **Username:** D1001, D6201, D9499
 
