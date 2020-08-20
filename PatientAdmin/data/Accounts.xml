@@ -13,13 +13,13 @@
      <string>Plymouth</string>
     </void>
     <void property="firstName">
-     <string>Big</string>
+     <string>Admin</string>
     </void>
     <void property="password">
      <string>admin</string>
     </void>
     <void property="surname">
-     <string>Boss</string>
+     <string>Admin</string>
     </void>
    </object>
   </void>
@@ -38,7 +38,7 @@
      <string>James</string>
     </void>
     <void property="password">
-     <string>ass</string>
+     <string>password</string>
     </void>
     <void property="surname">
      <string>White</string>
@@ -60,7 +60,7 @@
      <string>Karen</string>
     </void>
     <void property="password">
-     <string>ass</string>
+     <string>password</string>
     </void>
     <void property="surname">
      <string>Fisher</string>
@@ -76,22 +76,72 @@
      <string>PATIENT</string>
     </void>
     <void property="address">
-     <string>Hemel Hempstead</string>
+     <string>Plymouth</string>
     </void>
     <void property="age">
-     <int>24</int>
+     <int>30</int>
     </void>
     <void property="firstName">
-     <string>James</string>
+     <string>John</string>
     </void>
     <void property="gender">
      <string>Male</string>
     </void>
     <void property="password">
-     <string>ass</string>
+     <string>password</string>
     </void>
     <void property="surname">
-     <string>White</string>
+     <string>Smith</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="accounts.Patient">
+    <void property="ID">
+     <string>P4331</string>
+    </void>
+    <void property="accountType">
+     <string>PATIENT</string>
+    </void>
+    <void property="address">
+     <string>Exeter</string>
+    </void>
+    <void property="age">
+     <int>24</int>
+    </void>
+    <void property="firstName">
+     <string>Jane</string>
+    </void>
+    <void property="gender">
+     <string>Female</string>
+    </void>
+    <void property="password">
+     <string>password</string>
+    </void>
+    <void property="surname">
+     <string>Doe</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="accounts.Doctor">
+    <void property="ID">
+     <string>D6201</string>
+    </void>
+    <void property="accountType">
+     <string>DOCTOR</string>
+    </void>
+    <void property="address">
+     <string>Plymouth</string>
+    </void>
+    <void property="firstName">
+     <string>Phillip</string>
+    </void>
+    <void property="password">
+     <string>password</string>
+    </void>
+    <void property="surname">
+     <string>Williams</string>
     </void>
    </object>
   </void>

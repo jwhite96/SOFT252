@@ -22,9 +22,57 @@ public class AppointmentSingleton implements Serializable {
     public AppointmentSingleton() {
     }
             
+    /**
+     * 
+     * @param a appointment to be added
+     */
     public static void addAppointment(Appointment a) {
         appointments.add(a);
         updateAppointments();
+    }
+    
+    /**
+     * 
+     * @param a appointment to be deleted
+     */
+    public static void deleteAppointment(Appointment a) {
+                
+        //remove account object
+        if (appointments.contains(a)) {
+            appointments.remove(a);
+        }
+                
+        updateAppointments();
+    }
+    
+    public static void addNotes(Appointment a, String notes) {
+                
+        for (Appointment i : appointments) {
+            if (i.equals(a)) {
+                int index = appointments.indexOf(i);
+                i.setNotes(notes);
+                i.setStatus(1);
+                appointments.set(index, i);
+            }
+        }
+                
+        updateAppointments();
+               
+    }
+    
+    /**
+     * 
+     * @param a to be converted to object
+     * @return Appointment object
+     */
+    public static Appointment convertToObject(String a) {
+        
+        for (Appointment i : appointments) {
+           if (a.contains(i.getDate())){
+               return i;
+           }
+        }
+        return null;
     }
     
     public static void updateAppointments() {
@@ -40,7 +88,12 @@ public class AppointmentSingleton implements Serializable {
         return appointments;
     }
     
-    public static String [] getDoctorAppointments(Doctor doctor){
+    /**
+     * 
+     * @param a account viewing the appointment
+     * @return array list of user appointments
+     */
+    public static String [] getUserAppointments(Account a, int status){
              
         getAppointments();
         
@@ -48,8 +101,10 @@ public class AppointmentSingleton implements Serializable {
         
         // loop through list of appointments and return all for specified doctor
         for (Appointment i : appointments) {
-            if (i.getDoctor().equals(doctor)) {
-                appoinmentList.add(i);
+            if (i.getStatus() == status) {
+                if (i.getDoctor().getID().equals(a.getID()) || i.getPatient().getID().equals(a.getID()) ) {
+                    appoinmentList.add(i);
+                }
             }
         }
         

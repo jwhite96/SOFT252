@@ -8,11 +8,9 @@ package controllers;
 import accounts.*;
 import view.PatientHome;
 import accounts.Patient;
-import appointments.Appointment;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import singleton.AccountSingleton;
-
 
 /**
  *
@@ -35,7 +33,10 @@ public class PatientController {
         view.getBtnLogout().addActionListener(e -> logout());
         view.getBtnSubmit().addActionListener(e -> requestAppointment());
         view.getBtnDelete().addActionListener(e -> deleteAccount());
+        view.getBtnCancel().addActionListener(e -> cancelAppointment());
         view.getCmbDoctor().setModel(new DefaultComboBoxModel(Admin.getAccounts("DOCTOR")));
+        view.getLstAppointments().setListData(Patient.getAppointments(patient));
+        view.getLstHistory().setListData(Patient.getHistory(patient));
     }
     
     private void logout(){
@@ -54,6 +55,16 @@ public class PatientController {
         Patient.requestAppointment(patient, doctor, dateTime);
         
         JOptionPane.showMessageDialog(null, "Your appointment request has been received. Thank You");
+    }
+    
+    private void cancelAppointment() {
+        int alert = JOptionPane.showConfirmDialog(null, "Are you sure you want to cancel this appointment?", "Cancel Appointment", JOptionPane.YES_NO_OPTION);
+        
+        if (alert == JOptionPane.YES_OPTION) {
+            Patient.cancelAppointment(view.getLstAppointments().getSelectedValue());
+            JOptionPane.showMessageDialog(null, "Appointment Cancelled");            
+        }
+        view.getLstAppointments().setListData(Patient.getAppointments(patient));
     }
     
     private void deleteAccount() {

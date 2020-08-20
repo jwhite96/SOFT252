@@ -7,6 +7,7 @@ package controllers;
 
 import accounts.Account;
 import accounts.Doctor;
+import appointments.Appointment;
 import javax.swing.JOptionPane;
 import view.DoctorHome;
 
@@ -30,7 +31,9 @@ public class DoctorController {
     public void initController() {
         view.getBtnLogout().addActionListener(e -> logout());
         view.getBtnCreate().addActionListener(e -> newOrder());
-        view.getLstAppointments().setListData(Doctor.viewAppointments((Doctor) doctor));
+        view.getBtnCancel().addActionListener(e -> cancelAppointment());
+        view.getBtnBegin().addActionListener(e -> beginAppointment());
+        view.getLstAppointments().setListData(Doctor.viewAppointments(doctor));
     }
     
     private void newOrder() {
@@ -39,6 +42,22 @@ public class DoctorController {
         Doctor.requestStock(doctor, name, age);
         JOptionPane.showMessageDialog(null, "Your stock request has been received. Thank You");
         initController();
+    }
+    
+    private void cancelAppointment() {
+        int alert = JOptionPane.showConfirmDialog(null, "Are you sure you want to cancel this appointment?", "Cancel Appointment", JOptionPane.YES_NO_OPTION);
+        
+        if (alert == JOptionPane.YES_OPTION) {
+            Doctor.cancelAppointment(view.getLstAppointments().getSelectedValue());
+            JOptionPane.showMessageDialog(null, "Appointment Cancelled");            
+        }
+        view.getLstAppointments().setListData(Doctor.viewAppointments((Doctor) doctor));
+    }
+    
+    private void beginAppointment() {
+        view.setVisible(false);
+        Appointment a = Doctor.getAppointment(view.getLstAppointments().getSelectedValue());
+        new AppointmentController(doctor, a);
     }
     
     private void logout(){

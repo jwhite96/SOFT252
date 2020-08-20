@@ -17,12 +17,14 @@ public class Appointment implements Serializable {
     private Doctor doctor;
     private String date;
     private String notes;
+    private int status; // 0 = outstanding, 1 = concluded
 
-    public Appointment(Patient patient, Doctor doctor, String date, String notes) {
+    public Appointment(Patient patient, Doctor doctor, String date, String notes, int status) {
         this.patient = patient;
         this.doctor = doctor;
         this.date = date;
         this.notes = notes;
+        this.status = status;
     }
     
     public Appointment() {
@@ -59,9 +61,17 @@ public class Appointment implements Serializable {
     public void setNotes(String notes) {
         this.notes = notes;
     }
-    
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+        
     @Override
     public String toString(){
-        return patient + " " + date;
+        return patient + " " + date + " " + notes;
     }    
 }

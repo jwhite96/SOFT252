@@ -4,6 +4,66 @@
   <void method="add">
    <object class="appointments.Appointment">
     <void property="date">
+     <string>9:00 / 18 / Feb</string>
+    </void>
+    <void property="doctor">
+     <object class="accounts.Doctor">
+      <void property="ID">
+       <string>D1001</string>
+      </void>
+      <void property="accountType">
+       <string>DOCTOR</string>
+      </void>
+      <void property="address">
+       <string>Hemel Hempstead</string>
+      </void>
+      <void property="firstName">
+       <string>James</string>
+      </void>
+      <void property="password">
+       <string>password</string>
+      </void>
+      <void property="surname">
+       <string>White</string>
+      </void>
+     </object>
+    </void>
+    <void property="notes">
+     <string> </string>
+    </void>
+    <void property="patient">
+     <object class="accounts.Patient">
+      <void property="ID">
+       <string>P1001</string>
+      </void>
+      <void property="accountType">
+       <string>PATIENT</string>
+      </void>
+      <void property="address">
+       <string>Plymouth</string>
+      </void>
+      <void property="age">
+       <int>30</int>
+      </void>
+      <void property="firstName">
+       <string>John</string>
+      </void>
+      <void property="gender">
+       <string>Male</string>
+      </void>
+      <void property="password">
+       <string>password</string>
+      </void>
+      <void property="surname">
+       <string>Smith</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="appointments.Appointment">
+    <void property="date">
      <string>9:00 / 1 / Jan</string>
     </void>
     <void property="doctor">
@@ -21,7 +81,7 @@
        <string>James</string>
       </void>
       <void property="password">
-       <string>ass</string>
+       <string>password</string>
       </void>
       <void property="surname">
        <string>White</string>
@@ -40,142 +100,22 @@
        <string>PATIENT</string>
       </void>
       <void property="address">
-       <string>Hemel Hempstead</string>
+       <string>Plymouth</string>
       </void>
       <void property="age">
-       <int>24</int>
+       <int>30</int>
       </void>
       <void property="firstName">
-       <string>James</string>
+       <string>John</string>
       </void>
       <void property="gender">
        <string>Male</string>
       </void>
       <void property="password">
-       <string>ass</string>
+       <string>password</string>
       </void>
       <void property="surname">
-       <string>White</string>
-      </void>
-     </object>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="appointments.Appointment">
-    <void property="date">
-     <string>14:00 / 1 / May</string>
-    </void>
-    <void property="doctor">
-     <object class="accounts.Doctor">
-      <void property="ID">
-       <string>D1001</string>
-      </void>
-      <void property="accountType">
-       <string>DOCTOR</string>
-      </void>
-      <void property="address">
-       <string>Hemel Hempstead</string>
-      </void>
-      <void property="firstName">
-       <string>James</string>
-      </void>
-      <void property="password">
-       <string>ass</string>
-      </void>
-      <void property="surname">
-       <string>White</string>
-      </void>
-     </object>
-    </void>
-    <void property="notes">
-     <string> </string>
-    </void>
-    <void property="patient">
-     <object class="accounts.Patient">
-      <void property="ID">
-       <string>P1001</string>
-      </void>
-      <void property="accountType">
-       <string>PATIENT</string>
-      </void>
-      <void property="address">
-       <string>Hemel Hempstead</string>
-      </void>
-      <void property="age">
-       <int>24</int>
-      </void>
-      <void property="firstName">
-       <string>James</string>
-      </void>
-      <void property="gender">
-       <string>Male</string>
-      </void>
-      <void property="password">
-       <string>ass</string>
-      </void>
-      <void property="surname">
-       <string>White</string>
-      </void>
-     </object>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="appointments.Appointment">
-    <void property="date">
-     <string>9:00 / 1 / May</string>
-    </void>
-    <void property="doctor">
-     <object class="accounts.Doctor">
-      <void property="ID">
-       <string>D1001</string>
-      </void>
-      <void property="accountType">
-       <string>DOCTOR</string>
-      </void>
-      <void property="address">
-       <string>Hemel Hempstead</string>
-      </void>
-      <void property="firstName">
-       <string>James</string>
-      </void>
-      <void property="password">
-       <string>ass</string>
-      </void>
-      <void property="surname">
-       <string>White</string>
-      </void>
-     </object>
-    </void>
-    <void property="notes">
-     <string> </string>
-    </void>
-    <void property="patient">
-     <object class="accounts.Patient">
-      <void property="ID">
-       <string>P1001</string>
-      </void>
-      <void property="accountType">
-       <string>PATIENT</string>
-      </void>
-      <void property="address">
-       <string>Hemel Hempstead</string>
-      </void>
-      <void property="age">
-       <int>24</int>
-      </void>
-      <void property="firstName">
-       <string>James</string>
-      </void>
-      <void property="gender">
-       <string>Male</string>
-      </void>
-      <void property="password">
-       <string>ass</string>
-      </void>
-      <void property="surname">
-       <string>White</string>
+       <string>Smith</string>
       </void>
      </object>
     </void>

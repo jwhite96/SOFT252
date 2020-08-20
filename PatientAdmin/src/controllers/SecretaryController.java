@@ -46,6 +46,8 @@ public class SecretaryController {
             JOptionPane.showMessageDialog(null, "Request Actioned");           
         }
         view.getLstRequests().setListData(Secretary.getRequests());
+        view.getLstPatients().setListData(Admin.getAccounts("PATIENT"));
+        view.getLstStock().setListData(Secretary.getPharmacy());
     }
         
     private void deleteRequest() {

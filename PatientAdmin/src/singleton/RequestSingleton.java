@@ -88,7 +88,7 @@ public class RequestSingleton implements Serializable {
                 AppointmentRequest e = (AppointmentRequest) r;
                 Doctor d = e.getDoctor();
                 String dateTime = e.getDateTime();
-                Appointment newAppointment = new Appointment((Patient) a, d, dateTime, " ");
+                Appointment newAppointment = new Appointment((Patient) a, d, dateTime, " ", 0);
                 AppointmentSingleton.addAppointment(newAppointment);
                 deleteRequest(request);
                 break;

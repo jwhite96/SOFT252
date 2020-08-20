@@ -5,8 +5,8 @@
  */
 package accounts;
 
-import appointments.Appointment;
 import java.io.Serializable;
+import singleton.AppointmentSingleton;
 import singleton.RequestSingleton;
 
 /**
@@ -45,11 +45,18 @@ public class Patient extends Account implements Serializable {
         RequestSingleton.createRequest(account, "DELETE", null, null, null, 0);
     }
     
-    @Override
-    public String toString(){
-        return ID + " " + firstName + " " + surname;
+    public static String [] getAppointments(Account p) {
+        return AppointmentSingleton.getUserAppointments(p, 0);
     }
-
+    
+    public static String [] getHistory(Account p) {
+        return AppointmentSingleton.getUserAppointments(p, 1);
+    }
+    
+    public static void cancelAppointment(String appointment) {
+        AppointmentSingleton.deleteAppointment(AppointmentSingleton.convertToObject(appointment));
+    }
+    
     public String getGender() {
         return gender;
     }
@@ -66,6 +73,9 @@ public class Patient extends Account implements Serializable {
         this.age = age;
     }
     
-    
-    
+    @Override
+    public String toString(){
+        return ID + " " + firstName + " " + surname;
+    }
+
 }
