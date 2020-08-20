@@ -11,5 +11,35 @@
     </void>
    </object>
   </void>
+  <void method="add">
+   <object class="pharmacy.Medicine">
+    <void property="medicine">
+     <string>Paracetamol</string>
+    </void>
+    <void property="quantity">
+     <int>500</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="pharmacy.Medicine">
+    <void property="medicine">
+     <string>Ibrophen</string>
+    </void>
+    <void property="quantity">
+     <int>500</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="pharmacy.Medicine">
+    <void property="medicine">
+     <string>Cocodamol</string>
+    </void>
+    <void property="quantity">
+     <int>100</int>
+    </void>
+   </object>
+  </void>
  </object>
 </java>

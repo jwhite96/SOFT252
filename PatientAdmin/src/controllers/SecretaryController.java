@@ -32,6 +32,7 @@ public class SecretaryController {
         view.getBtnAction().addActionListener(e -> actionRequest());
         view.getBtnDelete().addActionListener(e -> deleteRequest());
         view.getBtnRemove().addActionListener(e -> removeAccount());
+        view.getBtnDeleteStock().addActionListener(e -> removeStockItem());
         view.getLstRequests().setListData(Secretary.getRequests());
         view.getLstStock().setListData(Secretary.getPharmacy());
         view.getLstPatients().setListData(Admin.getAccounts("PATIENT"));
@@ -69,6 +70,16 @@ public class SecretaryController {
             JOptionPane.showMessageDialog(null, "Account Removed");
         }
         view.getLstPatients().setListData(Admin.getAccounts("PATIENT"));
+    }
+    
+    private void removeStockItem() {
+        int alert = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove this item?", "Remove Item", JOptionPane.YES_NO_OPTION);
+        
+        if (alert == JOptionPane.YES_OPTION) {
+            Secretary.removeStock(view.getLstStock().getSelectedValue());
+            JOptionPane.showMessageDialog(null, "Stock Item Removed");
+        }
+        view.getLstStock().setListData(Secretary.getPharmacy());
     }
     
     private void logout(){

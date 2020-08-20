@@ -33,6 +33,16 @@ public class MedicineSingleton implements Serializable {
         updateStock();
     }
     
+     public static void deleteStock(Medicine m) {
+                
+        //remove account object
+        if (stockList.contains(m)) {
+            stockList.remove(m);
+        }
+                
+        updateStock();
+    }
+    
     public static void updateStock() {
         PharmacySerialiser.xmlEncoder(stockList, "data/Pharmacy.xml");
     }
@@ -44,6 +54,16 @@ public class MedicineSingleton implements Serializable {
     public static ArrayList getStock() {
         stockList = PharmacySerialiser.xmlDecoder(stockList, "data/Pharmacy.xml");
         return stockList;
+    }
+    
+    public static Medicine convertToObject(String m) {
+        
+        for (Medicine i : stockList) {
+           if (m.contains(i.getMedicine())){
+               return i;
+           }
+        }
+        return null;
     }
     
     /**

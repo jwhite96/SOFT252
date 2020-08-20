@@ -6,6 +6,7 @@
 package accounts;
 
 import java.io.Serializable;
+import pharmacy.Medicine;
 import singleton.MedicineSingleton;
 import singleton.RequestSingleton;
 
@@ -41,6 +42,10 @@ public class Secretary extends Account implements Serializable {
 
     public static String [] getPharmacy() {
         return MedicineSingleton.convertToArray();
+    }
+    
+    public static void removeStock(String m) {
+        MedicineSingleton.deleteStock(MedicineSingleton.convertToObject(m));
     }
     
     @Override
