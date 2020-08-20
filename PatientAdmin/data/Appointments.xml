@@ -89,7 +89,10 @@
      </object>
     </void>
     <void property="notes">
-     <string> </string>
+     <string>Slight Cough - Rest at home</string>
+    </void>
+	<void property="status">
+     <int>1</int>
     </void>
     <void property="patient">
      <object class="accounts.Patient">

@@ -41,5 +41,65 @@
     </void>
    </object>
   </void>
+  <void method="add">
+   <object class="pharmacy.Medicine">
+    <void property="medicine">
+     <string>Calpol</string>
+    </void>
+    <void property="quantity">
+     <int>20</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="pharmacy.Medicine">
+    <void property="medicine">
+     <string>Neurophen</string>
+    </void>
+    <void property="quantity">
+     <int>20</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="pharmacy.Medicine">
+    <void property="medicine">
+     <string>Aspirin</string>
+    </void>
+    <void property="quantity">
+     <int>150</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="pharmacy.Medicine">
+    <void property="medicine">
+     <string>Amlodipine</string>
+    </void>
+    <void property="quantity">
+     <int>150</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="pharmacy.Medicine">
+    <void property="medicine">
+     <string>Propranolol</string>
+    </void>
+    <void property="quantity">
+     <int>50</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="pharmacy.Medicine">
+    <void property="medicine">
+     <string>Clotrimazole</string>
+    </void>
+    <void property="quantity">
+     <int>50</int>
+    </void>
+   </object>
+  </void>
  </object>
 </java>

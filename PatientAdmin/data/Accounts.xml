@@ -145,5 +145,55 @@
     </void>
    </object>
   </void>
+  <void method="add">
+   <object class="accounts.Doctor">
+    <void property="ID">
+     <string>D9499</string>
+    </void>
+    <void property="accountType">
+     <string>DOCTOR</string>
+    </void>
+    <void property="address">
+     <string>Plymouth</string>
+    </void>
+    <void property="firstName">
+     <string>Bob</string>
+    </void>
+    <void property="password">
+     <string>password</string>
+    </void>
+    <void property="surname">
+     <string>Smith</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="accounts.Patient">
+    <void property="ID">
+     <string>P5245</string>
+    </void>
+    <void property="accountType">
+     <string>PATIENT</string>
+    </void>
+    <void property="address">
+     <string>Watford</string>
+    </void>
+    <void property="age">
+     <int>18</int>
+    </void>
+    <void property="firstName">
+     <string>Tom</string>
+    </void>
+    <void property="gender">
+     <string>Male</string>
+    </void>
+    <void property="password">
+     <string>password</string>
+    </void>
+    <void property="surname">
+     <string>Smith</string>
+    </void>
+   </object>
+  </void>
  </object>
 </java>
